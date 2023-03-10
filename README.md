@@ -1,7 +1,7 @@
 # Cryptography
 
 ## More about the Project
-
+This project should handle the encryption and decryption of messages and files.
 
 ### Students
 
