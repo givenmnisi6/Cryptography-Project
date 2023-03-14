@@ -6,8 +6,8 @@
 
 
 The following algorithms will be implemented
-- Vernam
 - Vigenère
+- Vernam
 - Transposition
 - Own algorithm
 
