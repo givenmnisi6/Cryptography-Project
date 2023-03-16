@@ -30,16 +30,18 @@
         {
             this.Vigeneretc = new System.Windows.Forms.TabControl();
             this.tcVigenere = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbEncryptVig = new System.Windows.Forms.RadioButton();
+            this.rbDecryptVig = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtVigKey = new System.Windows.Forms.TextBox();
+            this.lblKey = new System.Windows.Forms.Label();
             this.tcVernam = new System.Windows.Forms.TabPage();
             this.tcTransposition = new System.Windows.Forms.TabPage();
             this.tcCustom = new System.Windows.Forms.TabPage();
-            this.txtVigKey = new System.Windows.Forms.TextBox();
-            this.lblKey = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rbDecryptVig = new System.Windows.Forms.RadioButton();
-            this.rbEncryptVig = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Vigeneretc.SuspendLayout();
             this.tcVigenere.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,6 +61,8 @@
             // 
             // tcVigenere
             // 
+            this.tcVigenere.Controls.Add(this.textBox2);
+            this.tcVigenere.Controls.Add(this.label2);
             this.tcVigenere.Controls.Add(this.panel1);
             this.tcVigenere.Controls.Add(this.textBox1);
             this.tcVigenere.Controls.Add(this.label1);
@@ -71,6 +75,73 @@
             this.tcVigenere.TabIndex = 0;
             this.tcVigenere.Text = "Vigenère";
             this.tcVigenere.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbEncryptVig);
+            this.panel1.Controls.Add(this.rbDecryptVig);
+            this.panel1.Location = new System.Drawing.Point(561, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(119, 76);
+            this.panel1.TabIndex = 8;
+            // 
+            // rbEncryptVig
+            // 
+            this.rbEncryptVig.AutoSize = true;
+            this.rbEncryptVig.Location = new System.Drawing.Point(12, 16);
+            this.rbEncryptVig.Margin = new System.Windows.Forms.Padding(2);
+            this.rbEncryptVig.Name = "rbEncryptVig";
+            this.rbEncryptVig.Size = new System.Drawing.Size(80, 17);
+            this.rbEncryptVig.TabIndex = 6;
+            this.rbEncryptVig.Text = "Encrypt File";
+            this.rbEncryptVig.UseVisualStyleBackColor = true;
+            // 
+            // rbDecryptVig
+            // 
+            this.rbDecryptVig.AutoSize = true;
+            this.rbDecryptVig.Location = new System.Drawing.Point(12, 44);
+            this.rbDecryptVig.Margin = new System.Windows.Forms.Padding(2);
+            this.rbDecryptVig.Name = "rbDecryptVig";
+            this.rbDecryptVig.Size = new System.Drawing.Size(81, 17);
+            this.rbDecryptVig.TabIndex = 7;
+            this.rbDecryptVig.TabStop = true;
+            this.rbDecryptVig.Text = "Decrypt File";
+            this.rbDecryptVig.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(91, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(373, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Plain Text:";
+            // 
+            // txtVigKey
+            // 
+            this.txtVigKey.Location = new System.Drawing.Point(91, 61);
+            this.txtVigKey.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVigKey.Name = "txtVigKey";
+            this.txtVigKey.Size = new System.Drawing.Size(151, 20);
+            this.txtVigKey.TabIndex = 3;
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Location = new System.Drawing.Point(2, 64);
+            this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(81, 13);
+            this.lblKey.TabIndex = 2;
+            this.lblKey.Text = "Encryption Key:";
             // 
             // tcVernam
             // 
@@ -100,72 +171,23 @@
             this.tcCustom.Text = "Custom";
             this.tcCustom.UseVisualStyleBackColor = true;
             // 
-            // txtVigKey
+            // label2
             // 
-            this.txtVigKey.Location = new System.Drawing.Point(91, 61);
-            this.txtVigKey.Margin = new System.Windows.Forms.Padding(2);
-            this.txtVigKey.Name = "txtVigKey";
-            this.txtVigKey.Size = new System.Drawing.Size(151, 20);
-            this.txtVigKey.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(2, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Cipher Text:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // lblKey
+            // textBox2
             // 
-            this.lblKey.AutoSize = true;
-            this.lblKey.Location = new System.Drawing.Point(2, 64);
-            this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(81, 13);
-            this.lblKey.TabIndex = 2;
-            this.lblKey.Text = "Encryption Key:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Cipher Text:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(91, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(373, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // rbDecryptVig
-            // 
-            this.rbDecryptVig.AutoSize = true;
-            this.rbDecryptVig.Location = new System.Drawing.Point(12, 44);
-            this.rbDecryptVig.Margin = new System.Windows.Forms.Padding(2);
-            this.rbDecryptVig.Name = "rbDecryptVig";
-            this.rbDecryptVig.Size = new System.Drawing.Size(81, 17);
-            this.rbDecryptVig.TabIndex = 7;
-            this.rbDecryptVig.TabStop = true;
-            this.rbDecryptVig.Text = "Decrypt File";
-            this.rbDecryptVig.UseVisualStyleBackColor = true;
-            // 
-            // rbEncryptVig
-            // 
-            this.rbEncryptVig.AutoSize = true;
-            this.rbEncryptVig.Location = new System.Drawing.Point(12, 16);
-            this.rbEncryptVig.Margin = new System.Windows.Forms.Padding(2);
-            this.rbEncryptVig.Name = "rbEncryptVig";
-            this.rbEncryptVig.Size = new System.Drawing.Size(80, 17);
-            this.rbEncryptVig.TabIndex = 6;
-            this.rbEncryptVig.Text = "Encrypt File";
-            this.rbEncryptVig.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rbEncryptVig);
-            this.panel1.Controls.Add(this.rbDecryptVig);
-            this.panel1.Location = new System.Drawing.Point(561, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(119, 76);
-            this.panel1.TabIndex = 8;
+            this.textBox2.Location = new System.Drawing.Point(91, 101);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(373, 20);
+            this.textBox2.TabIndex = 10;
             // 
             // TextEncryption
             // 
@@ -198,5 +220,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbEncryptVig;
         private System.Windows.Forms.RadioButton rbDecryptVig;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
