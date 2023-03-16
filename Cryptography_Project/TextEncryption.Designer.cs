@@ -30,18 +30,19 @@
         {
             this.Vigeneretc = new System.Windows.Forms.TabControl();
             this.tcVigenere = new System.Windows.Forms.TabPage();
+            this.ViOutputtxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbEncryptVig = new System.Windows.Forms.RadioButton();
             this.rbDecryptVig = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ViInputtxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtVigKey = new System.Windows.Forms.TextBox();
+            this.VKeytxt = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
             this.tcVernam = new System.Windows.Forms.TabPage();
             this.tcTransposition = new System.Windows.Forms.TabPage();
             this.tcCustom = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextEncryptionbtn = new System.Windows.Forms.Button();
             this.Vigeneretc.SuspendLayout();
             this.tcVigenere.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,12 +62,13 @@
             // 
             // tcVigenere
             // 
-            this.tcVigenere.Controls.Add(this.textBox2);
+            this.tcVigenere.Controls.Add(this.TextEncryptionbtn);
+            this.tcVigenere.Controls.Add(this.ViOutputtxt);
             this.tcVigenere.Controls.Add(this.label2);
             this.tcVigenere.Controls.Add(this.panel1);
-            this.tcVigenere.Controls.Add(this.textBox1);
+            this.tcVigenere.Controls.Add(this.ViInputtxt);
             this.tcVigenere.Controls.Add(this.label1);
-            this.tcVigenere.Controls.Add(this.txtVigKey);
+            this.tcVigenere.Controls.Add(this.VKeytxt);
             this.tcVigenere.Controls.Add(this.lblKey);
             this.tcVigenere.Location = new System.Drawing.Point(4, 22);
             this.tcVigenere.Name = "tcVigenere";
@@ -75,6 +77,24 @@
             this.tcVigenere.TabIndex = 0;
             this.tcVigenere.Text = "Vigenère";
             this.tcVigenere.UseVisualStyleBackColor = true;
+            // 
+            // ViOutputtxt
+            // 
+            this.ViOutputtxt.Location = new System.Drawing.Point(91, 101);
+            this.ViOutputtxt.Name = "ViOutputtxt";
+            this.ViOutputtxt.Size = new System.Drawing.Size(373, 20);
+            this.ViOutputtxt.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(2, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Cipher Text:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -92,7 +112,7 @@
             this.rbEncryptVig.Margin = new System.Windows.Forms.Padding(2);
             this.rbEncryptVig.Name = "rbEncryptVig";
             this.rbEncryptVig.Size = new System.Drawing.Size(80, 17);
-            this.rbEncryptVig.TabIndex = 6;
+            this.rbEncryptVig.TabIndex = 4;
             this.rbEncryptVig.Text = "Encrypt File";
             this.rbEncryptVig.UseVisualStyleBackColor = true;
             // 
@@ -103,17 +123,17 @@
             this.rbDecryptVig.Margin = new System.Windows.Forms.Padding(2);
             this.rbDecryptVig.Name = "rbDecryptVig";
             this.rbDecryptVig.Size = new System.Drawing.Size(81, 17);
-            this.rbDecryptVig.TabIndex = 7;
+            this.rbDecryptVig.TabIndex = 5;
             this.rbDecryptVig.TabStop = true;
             this.rbDecryptVig.Text = "Decrypt File";
             this.rbDecryptVig.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // ViInputtxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(373, 20);
-            this.textBox1.TabIndex = 5;
+            this.ViInputtxt.Location = new System.Drawing.Point(91, 25);
+            this.ViInputtxt.Name = "ViInputtxt";
+            this.ViInputtxt.Size = new System.Drawing.Size(373, 20);
+            this.ViInputtxt.TabIndex = 1;
             // 
             // label1
             // 
@@ -125,13 +145,13 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Plain Text:";
             // 
-            // txtVigKey
+            // VKeytxt
             // 
-            this.txtVigKey.Location = new System.Drawing.Point(91, 61);
-            this.txtVigKey.Margin = new System.Windows.Forms.Padding(2);
-            this.txtVigKey.Name = "txtVigKey";
-            this.txtVigKey.Size = new System.Drawing.Size(151, 20);
-            this.txtVigKey.TabIndex = 3;
+            this.VKeytxt.Location = new System.Drawing.Point(91, 61);
+            this.VKeytxt.Margin = new System.Windows.Forms.Padding(2);
+            this.VKeytxt.Name = "VKeytxt";
+            this.VKeytxt.Size = new System.Drawing.Size(151, 20);
+            this.VKeytxt.TabIndex = 2;
             // 
             // lblKey
             // 
@@ -171,29 +191,20 @@
             this.tcCustom.Text = "Custom";
             this.tcCustom.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // TextEncryptionbtn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 101);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Cipher Text:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(91, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(373, 20);
-            this.textBox2.TabIndex = 10;
+            this.TextEncryptionbtn.Location = new System.Drawing.Point(250, 178);
+            this.TextEncryptionbtn.Name = "TextEncryptionbtn";
+            this.TextEncryptionbtn.Size = new System.Drawing.Size(180, 73);
+            this.TextEncryptionbtn.TabIndex = 6;
+            this.TextEncryptionbtn.Text = "DONE";
+            this.TextEncryptionbtn.UseVisualStyleBackColor = true;
             // 
             // TextEncryption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(714, 394);
             this.Controls.Add(this.Vigeneretc);
             this.Name = "TextEncryption";
             this.Text = "Text Encryption";
@@ -214,13 +225,14 @@
         private System.Windows.Forms.TabPage tcTransposition;
         private System.Windows.Forms.TabPage tcCustom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtVigKey;
+        private System.Windows.Forms.TextBox VKeytxt;
         private System.Windows.Forms.Label lblKey;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ViInputtxt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbEncryptVig;
         private System.Windows.Forms.RadioButton rbDecryptVig;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ViOutputtxt;
+        private System.Windows.Forms.Button TextEncryptionbtn;
     }
 }
