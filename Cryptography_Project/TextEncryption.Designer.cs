@@ -30,6 +30,7 @@
         {
             this.Vigeneretc = new System.Windows.Forms.TabControl();
             this.tcVigenere = new System.Windows.Forms.TabPage();
+            this.TextEncryptionbtn = new System.Windows.Forms.Button();
             this.ViOutputtxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@
             this.tcVernam = new System.Windows.Forms.TabPage();
             this.tcTransposition = new System.Windows.Forms.TabPage();
             this.tcCustom = new System.Windows.Forms.TabPage();
-            this.TextEncryptionbtn = new System.Windows.Forms.Button();
             this.Vigeneretc.SuspendLayout();
             this.tcVigenere.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,6 +78,15 @@
             this.tcVigenere.Text = "Vigenère";
             this.tcVigenere.UseVisualStyleBackColor = true;
             // 
+            // TextEncryptionbtn
+            // 
+            this.TextEncryptionbtn.Location = new System.Drawing.Point(250, 178);
+            this.TextEncryptionbtn.Name = "TextEncryptionbtn";
+            this.TextEncryptionbtn.Size = new System.Drawing.Size(180, 73);
+            this.TextEncryptionbtn.TabIndex = 6;
+            this.TextEncryptionbtn.Text = "DONE";
+            this.TextEncryptionbtn.UseVisualStyleBackColor = true;
+            // 
             // ViOutputtxt
             // 
             this.ViOutputtxt.Location = new System.Drawing.Point(91, 101);
@@ -94,7 +103,6 @@
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cipher Text:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -191,15 +199,6 @@
             this.tcCustom.Text = "Custom";
             this.tcCustom.UseVisualStyleBackColor = true;
             // 
-            // TextEncryptionbtn
-            // 
-            this.TextEncryptionbtn.Location = new System.Drawing.Point(250, 178);
-            this.TextEncryptionbtn.Name = "TextEncryptionbtn";
-            this.TextEncryptionbtn.Size = new System.Drawing.Size(180, 73);
-            this.TextEncryptionbtn.TabIndex = 6;
-            this.TextEncryptionbtn.Text = "DONE";
-            this.TextEncryptionbtn.UseVisualStyleBackColor = true;
-            // 
             // TextEncryption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +207,7 @@
             this.Controls.Add(this.Vigeneretc);
             this.Name = "TextEncryption";
             this.Text = "Text Encryption";
+            this.Shown += new System.EventHandler(this.TextEncryption_Shown);
             this.Vigeneretc.ResumeLayout(false);
             this.tcVigenere.ResumeLayout(false);
             this.tcVigenere.PerformLayout();

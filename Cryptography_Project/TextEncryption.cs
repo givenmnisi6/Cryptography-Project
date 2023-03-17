@@ -16,10 +16,11 @@ namespace Cryptography_Project
         {
             InitializeComponent();
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void TextEncryption_Shown(object sender, EventArgs e)
         {
-
+            //focus on the first textbox
+            ViInputtxt.Focus();
         }
+
     }
 }
