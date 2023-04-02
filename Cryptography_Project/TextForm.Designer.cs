@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cipherTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.plainTextbox = new System.Windows.Forms.TextBox();
@@ -41,7 +42,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Textbtn = new System.Windows.Forms.Button();
             this.Backbtn = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.VigPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // cipherTextbox
@@ -67,6 +72,7 @@
             this.plainTextbox.Name = "plainTextbox";
             this.plainTextbox.Size = new System.Drawing.Size(373, 20);
             this.plainTextbox.TabIndex = 10;
+            this.plainTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.plainTextbox_Validating);
             // 
             // label1
             // 
@@ -85,6 +91,7 @@
             this.encryptionTextbox.Name = "encryptionTextbox";
             this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
             this.encryptionTextbox.TabIndex = 11;
+            this.encryptionTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.encryptionTextbox_Validating);
             // 
             // lblKey
             // 
@@ -173,6 +180,14 @@
             this.Backbtn.UseVisualStyleBackColor = true;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +208,8 @@
             this.Text = "Text Encryption";
             this.VigPanel.ResumeLayout(false);
             this.VigPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +230,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Textbtn;
         private System.Windows.Forms.Button Backbtn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

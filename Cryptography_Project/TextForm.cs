@@ -13,39 +13,80 @@ namespace Cryptography_Project
     public partial class TextForm : Form
     {
         //Global string variables
-        string plainTextText, encryptionKey, cipherText;
+        string plainText, encryptionKey, cipherText;
         public TextForm()
         {
             InitializeComponent();
         }
 
+        private void plainTextbox_Validating(object sender, CancelEventArgs e)
+        {
+            if(string.IsNullOrEmpty(plainTextbox.Text))
+            {
+                e.Cancel = true;   
+                plainTextbox.Focus();
+                errorProvider1.SetError(plainTextbox, "Required Field");
+            } else
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(plainTextbox, null);
+            }
+        }
+
+        private void encryptionTextbox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(encryptionTextbox.Text))
+            {
+                e.Cancel = true;
+                plainTextbox.Focus();
+                errorProvider2.SetError(encryptionTextbox, "Required Field");
+            }
+            else
+            {
+                e.Cancel = true;
+                errorProvider2.SetError(encryptionTextbox, null);
+            }
+        }
+
         private void Textbtn_Click(object sender, EventArgs e)
         {
-            plainTextText = plainTextbox.Text;
+            plainText = plainTextbox.Text;
             encryptionKey = encryptionTextbox.Text;
             cipherText = cipherTextbox.Text;
 
 
-            if (plainTextText != "" && encryptionKey != "" && (int.TryParse(encryptionKey, out int x) || comboBox1.SelectedItem.ToString() == "Vigenere"))
+            if (plainText != "" && encryptionKey != "" && (int.TryParse(encryptionKey, out int x) || comboBox1.SelectedItem.ToString() == "Vigenere"))
             {
                 if (comboBox1.SelectedItem.ToString() == "Vigenere")
                 {
                     if (encryptionRadiobtn.Checked)
                     {
                         VigenereText vigenere = new VigenereText();
-                        cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainTextText, encryptionKey);
+                        cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainText, encryptionKey);
 
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
                         VigenereText vigenere = new VigenereText();
-                        cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainTextText, encryptionKey);
+                        cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainText, encryptionKey);
+
                     }
                 }
             }
             else
             {
                 MessageBox.Show("You need to input text and a numerical key", "Hold up!");
+            }
+
+            //Error Providers
+            if(ValidateChildren(ValidationConstraints.Enabled))
+            {
+                MessageBox.Show(plainTextbox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                MessageBox.Show(encryptionTextbox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
