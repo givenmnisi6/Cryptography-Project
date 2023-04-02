@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cryptography_Project
 {
-    internal class VigenereText
+    class VigenereText
     {
-        //Vigenere Encrypt & Decrypt methods, take the plaintext and the key
         public String VigenereTextEncrypt(String plain, String key)
         {
-            //declaring all the alphabets, starting from 0 - 25
-            Dictionary<sbyte, char> AlphabetOrder = new Dictionary<sbyte, char>();
+            Dictionary <sbyte, char> AlphabetOrder = new Dictionary <sbyte, char> ();
             AlphabetOrder.Add(0, 'A');
             AlphabetOrder.Add(1, 'B');
             AlphabetOrder.Add(2, 'C');
@@ -43,35 +41,39 @@ namespace Cryptography_Project
             key = key.ToUpper();
             plain = plain.ToUpper();
 
-            string ciphertext = "";
+            string cipherText = "";
 
             int i = 0;
 
-            foreach (char element in plain) {
-                //If character is not an alphabetical value
-                if (!Char.IsLetter(element)) { 
-                    ciphertext += element; 
-                } 
-                else {
-                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; //Get the dictionary TKey by the TValue
+            foreach (char element in plain)
+            {
+                if (!Char.IsLetter(element))
+                {
+                    cipherText += element;
+                }
+                else
+                {
+                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key;
                     sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
                     sbyte Final = (sbyte)(TOrder + KOrder);
-                    if (Final > 25) {
-                        Final -= 26; 
+                    if (Final > 25)
+                    {
+                        Final -= 26;
                     }
-                    ciphertext += AlphabetOrder[Final];
+                    cipherText += AlphabetOrder[Final];
                     i++;
                 }
-                if (i == key.Length) { 
-                    i = 0; 
+                if (i == key.Length)
+                {
+                    i = 0;
                 }
             }
-            return ciphertext;
+            return cipherText;
         }
 
         public String VigenereTextDecrypt(String mixed, String key)
         {
-            Dictionary<sbyte, char> AlphabetOrder = new Dictionary<sbyte, char>();
+            Dictionary <sbyte, char> AlphabetOrder = new Dictionary <sbyte, char>();
             AlphabetOrder.Add(0, 'A');
             AlphabetOrder.Add(1, 'B');
             AlphabetOrder.Add(2, 'C');
@@ -102,32 +104,35 @@ namespace Cryptography_Project
             key = key.ToUpper();
             mixed = mixed.ToUpper();
 
-            string plaintext = " ";
+            string plainText = "";
 
             int i = 0;
 
             foreach (char element in mixed)
             {
-                if (!Char.IsLetter(element)) {
-                    plaintext += element; 
+                if (!Char.IsLetter(element))
+                {
+                    plainText += element;
                 }
-                else {
-                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; 
+                else
+                {
+                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key;
                     sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
                     sbyte Final = (sbyte)(TOrder - KOrder);
-                    if (Final < 0) { 
-                        Final += 26; 
+                    if (Final < 0)
+                    {
+                        Final += 26;
                     }
-
-                    plaintext += AlphabetOrder[Final];
+                    plainText += AlphabetOrder[Final];
 
                     i++;
-                } if (i == key.Length) { 
-                    i = 0; 
+                }
+                if (i == key.Length)
+                {
+                    i = 0;
                 }
             }
-            return plaintext;
+            return plainText;
         }
-
     }
 }

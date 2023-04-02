@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ViOutputtxt = new System.Windows.Forms.TextBox();
+            this.cipherTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ViInputtxt = new System.Windows.Forms.TextBox();
+            this.plainTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ViKeytxt = new System.Windows.Forms.TextBox();
+            this.encryptionTextbox = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
             this.VigPanel = new System.Windows.Forms.Panel();
-            this.VigEncryptrb = new System.Windows.Forms.RadioButton();
-            this.VigDecryptrb = new System.Windows.Forms.RadioButton();
+            this.encryptionRadiobtn = new System.Windows.Forms.RadioButton();
+            this.decryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Textbtn = new System.Windows.Forms.Button();
-            this.Bankbtn = new System.Windows.Forms.Button();
+            this.Backbtn = new System.Windows.Forms.Button();
             this.VigPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ViOutputtxt
+            // cipherTextbox
             // 
-            this.ViOutputtxt.Location = new System.Drawing.Point(111, 115);
-            this.ViOutputtxt.Name = "ViOutputtxt";
-            this.ViOutputtxt.Size = new System.Drawing.Size(373, 20);
-            this.ViOutputtxt.TabIndex = 13;
+            this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
+            this.cipherTextbox.Name = "cipherTextbox";
+            this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
+            this.cipherTextbox.TabIndex = 13;
             // 
             // label2
             // 
@@ -61,12 +61,12 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Cipher Text:";
             // 
-            // ViInputtxt
+            // plainTextbox
             // 
-            this.ViInputtxt.Location = new System.Drawing.Point(111, 39);
-            this.ViInputtxt.Name = "ViInputtxt";
-            this.ViInputtxt.Size = new System.Drawing.Size(373, 20);
-            this.ViInputtxt.TabIndex = 10;
+            this.plainTextbox.Location = new System.Drawing.Point(111, 39);
+            this.plainTextbox.Name = "plainTextbox";
+            this.plainTextbox.Size = new System.Drawing.Size(373, 20);
+            this.plainTextbox.TabIndex = 10;
             // 
             // label1
             // 
@@ -78,13 +78,13 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Plain Text:";
             // 
-            // ViKeytxt
+            // encryptionTextbox
             // 
-            this.ViKeytxt.Location = new System.Drawing.Point(111, 75);
-            this.ViKeytxt.Margin = new System.Windows.Forms.Padding(2);
-            this.ViKeytxt.Name = "ViKeytxt";
-            this.ViKeytxt.Size = new System.Drawing.Size(151, 20);
-            this.ViKeytxt.TabIndex = 11;
+            this.encryptionTextbox.Location = new System.Drawing.Point(111, 75);
+            this.encryptionTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.encryptionTextbox.Name = "encryptionTextbox";
+            this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
+            this.encryptionTextbox.TabIndex = 11;
             // 
             // lblKey
             // 
@@ -99,35 +99,35 @@
             // VigPanel
             // 
             this.VigPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VigPanel.Controls.Add(this.VigEncryptrb);
-            this.VigPanel.Controls.Add(this.VigDecryptrb);
+            this.VigPanel.Controls.Add(this.encryptionRadiobtn);
+            this.VigPanel.Controls.Add(this.decryptionRadiobtn);
             this.VigPanel.Location = new System.Drawing.Point(573, 39);
             this.VigPanel.Name = "VigPanel";
             this.VigPanel.Size = new System.Drawing.Size(119, 76);
             this.VigPanel.TabIndex = 16;
             // 
-            // VigEncryptrb
+            // encryptionRadiobtn
             // 
-            this.VigEncryptrb.AutoSize = true;
-            this.VigEncryptrb.Location = new System.Drawing.Point(12, 16);
-            this.VigEncryptrb.Margin = new System.Windows.Forms.Padding(2);
-            this.VigEncryptrb.Name = "VigEncryptrb";
-            this.VigEncryptrb.Size = new System.Drawing.Size(64, 17);
-            this.VigEncryptrb.TabIndex = 4;
-            this.VigEncryptrb.Text = "Encrypt ";
-            this.VigEncryptrb.UseVisualStyleBackColor = true;
+            this.encryptionRadiobtn.AutoSize = true;
+            this.encryptionRadiobtn.Location = new System.Drawing.Point(12, 16);
+            this.encryptionRadiobtn.Margin = new System.Windows.Forms.Padding(2);
+            this.encryptionRadiobtn.Name = "encryptionRadiobtn";
+            this.encryptionRadiobtn.Size = new System.Drawing.Size(64, 17);
+            this.encryptionRadiobtn.TabIndex = 4;
+            this.encryptionRadiobtn.Text = "Encrypt ";
+            this.encryptionRadiobtn.UseVisualStyleBackColor = true;
             // 
-            // VigDecryptrb
+            // decryptionRadiobtn
             // 
-            this.VigDecryptrb.AutoSize = true;
-            this.VigDecryptrb.Location = new System.Drawing.Point(12, 44);
-            this.VigDecryptrb.Margin = new System.Windows.Forms.Padding(2);
-            this.VigDecryptrb.Name = "VigDecryptrb";
-            this.VigDecryptrb.Size = new System.Drawing.Size(65, 17);
-            this.VigDecryptrb.TabIndex = 5;
-            this.VigDecryptrb.TabStop = true;
-            this.VigDecryptrb.Text = "Decrypt ";
-            this.VigDecryptrb.UseVisualStyleBackColor = true;
+            this.decryptionRadiobtn.AutoSize = true;
+            this.decryptionRadiobtn.Location = new System.Drawing.Point(12, 44);
+            this.decryptionRadiobtn.Margin = new System.Windows.Forms.Padding(2);
+            this.decryptionRadiobtn.Name = "decryptionRadiobtn";
+            this.decryptionRadiobtn.Size = new System.Drawing.Size(65, 17);
+            this.decryptionRadiobtn.TabIndex = 5;
+            this.decryptionRadiobtn.TabStop = true;
+            this.decryptionRadiobtn.Text = "Decrypt ";
+            this.decryptionRadiobtn.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -135,7 +135,7 @@
             this.comboBox1.ItemHeight = 13;
             this.comboBox1.Items.AddRange(new object[] {
             "Transposition",
-            "Vigenère",
+            "Vigenere",
             "Vernam",
             "Custom"});
             this.comboBox1.Location = new System.Drawing.Point(111, 154);
@@ -161,32 +161,33 @@
             this.Textbtn.TabIndex = 19;
             this.Textbtn.Text = "DONE";
             this.Textbtn.UseVisualStyleBackColor = true;
+            this.Textbtn.Click += new System.EventHandler(this.Textbtn_Click);
             // 
-            // Bankbtn
+            // Backbtn
             // 
-            this.Bankbtn.Location = new System.Drawing.Point(429, 235);
-            this.Bankbtn.Name = "Bankbtn";
-            this.Bankbtn.Size = new System.Drawing.Size(188, 60);
-            this.Bankbtn.TabIndex = 20;
-            this.Bankbtn.Text = "BACK";
-            this.Bankbtn.UseVisualStyleBackColor = true;
-            this.Bankbtn.Click += new System.EventHandler(this.Bankbtn_Click);
+            this.Backbtn.Location = new System.Drawing.Point(429, 235);
+            this.Backbtn.Name = "Backbtn";
+            this.Backbtn.Size = new System.Drawing.Size(188, 60);
+            this.Backbtn.TabIndex = 20;
+            this.Backbtn.Text = "BACK";
+            this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 414);
-            this.Controls.Add(this.Bankbtn);
+            this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Textbtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.VigPanel);
-            this.Controls.Add(this.ViOutputtxt);
+            this.Controls.Add(this.cipherTextbox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.ViInputtxt);
+            this.Controls.Add(this.plainTextbox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ViKeytxt);
+            this.Controls.Add(this.encryptionTextbox);
             this.Controls.Add(this.lblKey);
             this.Name = "TextForm";
             this.Text = "Text Encryption";
@@ -199,18 +200,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox ViOutputtxt;
+        private System.Windows.Forms.TextBox cipherTextbox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ViInputtxt;
+        private System.Windows.Forms.TextBox plainTextbox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox ViKeytxt;
+        private System.Windows.Forms.TextBox encryptionTextbox;
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Panel VigPanel;
-        private System.Windows.Forms.RadioButton VigEncryptrb;
-        private System.Windows.Forms.RadioButton VigDecryptrb;
+        private System.Windows.Forms.RadioButton encryptionRadiobtn;
+        private System.Windows.Forms.RadioButton decryptionRadiobtn;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Textbtn;
-        private System.Windows.Forms.Button Bankbtn;
+        private System.Windows.Forms.Button Backbtn;
     }
 }

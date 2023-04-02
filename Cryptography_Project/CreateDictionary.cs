@@ -18,7 +18,8 @@ namespace Cryptography_Project
                 char c = 'a';
                 alphabet.Add(c, 0);
 
-                for (int i = 1; i < 26; i++) {
+                for (int i = 1; i < 26; i++)
+                {
                     alphabet.Add(++c, i);
                 }
             }
