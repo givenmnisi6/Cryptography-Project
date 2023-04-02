@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Cryptography_Project
 {
-    public partial class TextEncryption : Form
+    public partial class TextForm : Form
     {
-        public TextEncryption()
+        public TextForm()
         {
             InitializeComponent();
         }
-        private void TextEncryption_Shown(object sender, EventArgs e)
-        {
-            //focus on the first textbox
-            ViInputtxt.Focus();
-        }
 
+        private void Bankbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

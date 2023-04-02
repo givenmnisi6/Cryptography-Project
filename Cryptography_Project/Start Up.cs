@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cryptography_Project
 {
-    public partial class Form1 : Form
+    public partial class StartUp : Form
     {
-        public Form1()
+        public StartUp()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace Cryptography_Project
         private void Textbtn_Click(object sender, EventArgs e)
         {
             //creating an instance of the TextEncryption form
-            TextEncryption text = new TextEncryption();
+            TextForm text = new TextForm();
             text.ShowDialog();
         }
 

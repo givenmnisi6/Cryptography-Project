@@ -1,6 +1,6 @@
 ﻿namespace Cryptography_Project
 {
-    partial class Form1
+    partial class StartUp
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             // 
             // Exitbtn
             // 
-            this.Exitbtn.Location = new System.Drawing.Point(305, 267);
+            this.Exitbtn.Location = new System.Drawing.Point(245, 198);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.Size = new System.Drawing.Size(188, 60);
             this.Exitbtn.TabIndex = 8;
@@ -47,15 +47,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(323, 124);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(192, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.Size = new System.Drawing.Size(308, 18);
             this.label1.TabIndex = 7;
-            this.label1.Text = "What do you want to encrypt?";
+            this.label1.Text = "Choose what you want to encrypt and decrypt";
             // 
             // Filesbtn
             // 
-            this.Filesbtn.Location = new System.Drawing.Point(435, 183);
+            this.Filesbtn.Location = new System.Drawing.Point(392, 117);
             this.Filesbtn.Name = "Filesbtn";
             this.Filesbtn.Size = new System.Drawing.Size(188, 60);
             this.Filesbtn.TabIndex = 6;
@@ -64,7 +65,7 @@
             // 
             // Textbtn
             // 
-            this.Textbtn.Location = new System.Drawing.Point(178, 183);
+            this.Textbtn.Location = new System.Drawing.Point(102, 117);
             this.Textbtn.Name = "Textbtn";
             this.Textbtn.Size = new System.Drawing.Size(188, 60);
             this.Textbtn.TabIndex = 5;
@@ -72,16 +73,16 @@
             this.Textbtn.UseVisualStyleBackColor = true;
             this.Textbtn.Click += new System.EventHandler(this.Textbtn_Click);
             // 
-            // Form1
+            // StartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(680, 392);
             this.Controls.Add(this.Exitbtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Filesbtn);
             this.Controls.Add(this.Textbtn);
-            this.Name = "Form1";
+            this.Name = "StartUp";
             this.Text = "Start Up";
             this.ResumeLayout(false);
             this.PerformLayout();
