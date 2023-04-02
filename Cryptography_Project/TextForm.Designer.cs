@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.encryptionTextbox = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
-            this.VigPanel = new System.Windows.Forms.Panel();
+            this.Panel = new System.Windows.Forms.Panel();
             this.encryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.decryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -44,7 +44,7 @@
             this.Backbtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.VigPanel.SuspendLayout();
+            this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +72,6 @@
             this.plainTextbox.Name = "plainTextbox";
             this.plainTextbox.Size = new System.Drawing.Size(373, 20);
             this.plainTextbox.TabIndex = 10;
-            this.plainTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.plainTextbox_Validating);
             // 
             // label1
             // 
@@ -91,7 +90,6 @@
             this.encryptionTextbox.Name = "encryptionTextbox";
             this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
             this.encryptionTextbox.TabIndex = 11;
-            this.encryptionTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.encryptionTextbox_Validating);
             // 
             // lblKey
             // 
@@ -103,15 +101,15 @@
             this.lblKey.TabIndex = 12;
             this.lblKey.Text = "Encryption Key:";
             // 
-            // VigPanel
+            // Panel
             // 
-            this.VigPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VigPanel.Controls.Add(this.encryptionRadiobtn);
-            this.VigPanel.Controls.Add(this.decryptionRadiobtn);
-            this.VigPanel.Location = new System.Drawing.Point(573, 39);
-            this.VigPanel.Name = "VigPanel";
-            this.VigPanel.Size = new System.Drawing.Size(119, 76);
-            this.VigPanel.TabIndex = 16;
+            this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel.Controls.Add(this.encryptionRadiobtn);
+            this.Panel.Controls.Add(this.decryptionRadiobtn);
+            this.Panel.Location = new System.Drawing.Point(573, 39);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(119, 76);
+            this.Panel.TabIndex = 16;
             // 
             // encryptionRadiobtn
             // 
@@ -197,7 +195,7 @@
             this.Controls.Add(this.Textbtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.VigPanel);
+            this.Controls.Add(this.Panel);
             this.Controls.Add(this.cipherTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.plainTextbox);
@@ -206,8 +204,8 @@
             this.Controls.Add(this.lblKey);
             this.Name = "TextForm";
             this.Text = "Text Encryption";
-            this.VigPanel.ResumeLayout(false);
-            this.VigPanel.PerformLayout();
+            this.Panel.ResumeLayout(false);
+            this.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
@@ -223,7 +221,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox encryptionTextbox;
         private System.Windows.Forms.Label lblKey;
-        private System.Windows.Forms.Panel VigPanel;
+        private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.RadioButton encryptionRadiobtn;
         private System.Windows.Forms.RadioButton decryptionRadiobtn;
         private System.Windows.Forms.ComboBox comboBox1;

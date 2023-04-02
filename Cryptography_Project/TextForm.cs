@@ -19,35 +19,6 @@ namespace Cryptography_Project
             InitializeComponent();
         }
 
-        private void plainTextbox_Validating(object sender, CancelEventArgs e)
-        {
-            if(string.IsNullOrEmpty(plainTextbox.Text))
-            {
-                e.Cancel = true;   
-                plainTextbox.Focus();
-                errorProvider1.SetError(plainTextbox, "Required Field");
-            } else
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(plainTextbox, null);
-            }
-        }
-
-        private void encryptionTextbox_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(encryptionTextbox.Text))
-            {
-                e.Cancel = true;
-                plainTextbox.Focus();
-                errorProvider2.SetError(encryptionTextbox, "Required Field");
-            }
-            else
-            {
-                e.Cancel = true;
-                errorProvider2.SetError(encryptionTextbox, null);
-            }
-        }
-
         private void Textbtn_Click(object sender, EventArgs e)
         {
             plainText = plainTextbox.Text;
@@ -78,15 +49,13 @@ namespace Cryptography_Project
                 MessageBox.Show("You need to input text and a numerical key", "Hold up!");
             }
 
-            //Error Providers
-            if(ValidateChildren(ValidationConstraints.Enabled))
+            if(plainTextbox.Text == "")
             {
-                MessageBox.Show(plainTextbox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                errorProvider1.SetError(plainTextbox, "Required Field");
             }
-
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if(encryptionTextbox.Text == "")
             {
-                MessageBox.Show(encryptionTextbox.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                errorProvider2.SetError(encryptionTextbox, "Required Field");
             }
         }
 
