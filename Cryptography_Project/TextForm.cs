@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cryptography_Project.Transposition;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,29 +35,65 @@ namespace Cryptography_Project
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainText, encryptionKey);
-
+                        MessageBox.Show("Sucessfully encrypted the text with the vigenere encryption!");
                     }
+                    
                     else if (decryptionRadiobtn.Checked)
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainText, encryptionKey);
+                        MessageBox.Show("Sucessfully decrypted the text with the vigenere encryption!");
+                    } 
+ 
+                    //error Providers
+                    if (plainTextbox.Text == "")
+                    {
+                        errorProvider1.SetError(plainTextbox, "Required Field");
+                    }
+                    if (encryptionTextbox.Text == "")
+                    {
+                        errorProvider2.SetError(encryptionTextbox, "Required Field");
+                    }
+                }
+                else if (comboBox1.SelectedItem.ToString() == "Transposition")
+                {
+                    if (encryptionRadiobtn.Checked)
+                    {
+                        int test, keyValue;
 
+                        if (int.TryParse(encryptionTextbox.Text, out test))
+                        {
+                            TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
+                            cipherTextbox.Text = trans.Encrypt(plainText);
+                        }
+                        MessageBox.Show("Sucessfully encrypted the text with the transposition encryption!");
+                    }
+                    else if (decryptionRadiobtn.Checked)
+                    {
+                        int test, keyValue;
+
+                        if (int.TryParse(encryptionTextbox.Text, out test))
+                        {
+                            TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
+                            cipherTextbox.Text = trans.Decrypt(plainText);
+                        }
+                        MessageBox.Show("Sucessfully decrypted the text with the transposition encryption!");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("You need to input text and a numerical key", "Hold up!");
+                MessageBox.Show("You need to input text and a numerical key");
             }
-
-            if(plainTextbox.Text == "")
-            {
-                errorProvider1.SetError(plainTextbox, "Required Field");
-            }
-            if(encryptionTextbox.Text == "")
-            {
-                errorProvider2.SetError(encryptionTextbox, "Required Field");
-            }
+        }
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            plainTextbox.Text = "";
+            encryptionTextbox.Text = "";
+            cipherTextbox.Text = "";
+            comboBox1.SelectedItem= null;
+            encryptionRadiobtn.Checked = false;
+            decryptionRadiobtn.Checked = false; 
         }
 
         private void Backbtn_Click(object sender, EventArgs e)

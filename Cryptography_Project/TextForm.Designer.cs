@@ -44,6 +44,7 @@
             this.Backbtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Clearbtn = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -170,7 +171,7 @@
             // 
             // Backbtn
             // 
-            this.Backbtn.Location = new System.Drawing.Point(429, 235);
+            this.Backbtn.Location = new System.Drawing.Point(261, 313);
             this.Backbtn.Name = "Backbtn";
             this.Backbtn.Size = new System.Drawing.Size(188, 60);
             this.Backbtn.TabIndex = 20;
@@ -186,11 +187,22 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
+            // Clearbtn
+            // 
+            this.Clearbtn.Location = new System.Drawing.Point(394, 235);
+            this.Clearbtn.Name = "Clearbtn";
+            this.Clearbtn.Size = new System.Drawing.Size(188, 60);
+            this.Clearbtn.TabIndex = 21;
+            this.Clearbtn.Text = "CLEAR";
+            this.Clearbtn.UseVisualStyleBackColor = true;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
+            // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 414);
+            this.Controls.Add(this.Clearbtn);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Textbtn);
             this.Controls.Add(this.label3);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.Button Clearbtn;
     }
 }

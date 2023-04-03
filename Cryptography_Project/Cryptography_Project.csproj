@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transposition\TranspositionText.cs" />
     <Compile Include="Vigenère\VigenereText.cs" />
     <EmbeddedResource Include="TextForm.resx">
       <DependentUpon>TextForm.cs</DependentUpon>
