@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateDictionary.cs" />
+    <Compile Include="Custom\CustomText.cs" />
     <Compile Include="TextForm.cs">
       <SubType>Form</SubType>
     </Compile>

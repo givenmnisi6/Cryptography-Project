@@ -1,4 +1,5 @@
-﻿using Cryptography_Project.Transposition;
+﻿using Cryptography_Project.Custom;
+using Cryptography_Project.Transposition;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,14 +36,14 @@ namespace Cryptography_Project
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully encrypted the text with the vigenere encryption!");
+                        MessageBox.Show("Sucessfully encrypted the text with the Vigenere algorithm!");
                     }
                     
                     else if (decryptionRadiobtn.Checked)
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully decrypted the text with the vigenere encryption!");
+                        MessageBox.Show("Sucessfully decrypted the text with the Vigenere algorithm!");
                     } 
  
                     //error Providers
@@ -66,7 +67,7 @@ namespace Cryptography_Project
                             TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
                             cipherTextbox.Text = trans.Encrypt(plainText);
                         }
-                        MessageBox.Show("Sucessfully encrypted the text with the transposition encryption!");
+                        MessageBox.Show("Sucessfully encrypted the text with the transposition algorithm!");
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
@@ -77,7 +78,22 @@ namespace Cryptography_Project
                             TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
                             cipherTextbox.Text = trans.Decrypt(plainText);
                         }
-                        MessageBox.Show("Sucessfully decrypted the text with the transposition encryption!");
+                        MessageBox.Show("Sucessfully decrypted the text with the transposition algorithm!");
+                    }
+                } 
+                else if(comboBox1.SelectedItem.ToString() == "B&G InHouse")
+                {
+                    if (encryptionRadiobtn.Checked)
+                    {
+                        CustomText customText = new CustomText();
+                        cipherTextbox.Text = customText.CustomTextEncryption(plainText, encryptionKey);
+                        MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
+                    }
+                    else if (decryptionRadiobtn.Checked)
+                    {
+                        CustomText customText = new CustomText();
+                        cipherTextbox.Text = customText.CustomTextDecryption(plainText, encryptionKey);
+                        MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
                     }
                 }
             }

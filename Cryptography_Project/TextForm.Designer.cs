@@ -143,7 +143,7 @@
             "Transposition",
             "Vigenere",
             "Vernam",
-            "Custom"});
+            "B&G InHouse"});
             this.comboBox1.Location = new System.Drawing.Point(111, 154);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
