@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.encryptionTextbox = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
-            this.Panel = new System.Windows.Forms.Panel();
             this.encryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.decryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -45,9 +44,10 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Clearbtn = new System.Windows.Forms.Button();
-            this.Panel.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cipherTextbox
@@ -102,20 +102,10 @@
             this.lblKey.TabIndex = 12;
             this.lblKey.Text = "Encryption Key:";
             // 
-            // Panel
-            // 
-            this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Panel.Controls.Add(this.encryptionRadiobtn);
-            this.Panel.Controls.Add(this.decryptionRadiobtn);
-            this.Panel.Location = new System.Drawing.Point(573, 39);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(119, 76);
-            this.Panel.TabIndex = 16;
-            // 
             // encryptionRadiobtn
             // 
             this.encryptionRadiobtn.AutoSize = true;
-            this.encryptionRadiobtn.Location = new System.Drawing.Point(12, 16);
+            this.encryptionRadiobtn.Location = new System.Drawing.Point(12, 22);
             this.encryptionRadiobtn.Margin = new System.Windows.Forms.Padding(2);
             this.encryptionRadiobtn.Name = "encryptionRadiobtn";
             this.encryptionRadiobtn.Size = new System.Drawing.Size(64, 17);
@@ -143,7 +133,7 @@
             "Transposition",
             "Vigenere",
             "Vernam",
-            "Custom"});
+            "B&G InHouse"});
             this.comboBox1.Location = new System.Drawing.Point(111, 154);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -197,17 +187,28 @@
             this.Clearbtn.UseVisualStyleBackColor = true;
             this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.decryptionRadiobtn);
+            this.groupBox1.Controls.Add(this.encryptionRadiobtn);
+            this.groupBox1.Location = new System.Drawing.Point(573, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(122, 75);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cryptography Method";
+            // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 414);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Clearbtn);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Textbtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.Panel);
             this.Controls.Add(this.cipherTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.plainTextbox);
@@ -216,10 +217,10 @@
             this.Controls.Add(this.lblKey);
             this.Name = "TextForm";
             this.Text = "Text Encryption";
-            this.Panel.ResumeLayout(false);
-            this.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,7 +234,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox encryptionTextbox;
         private System.Windows.Forms.Label lblKey;
-        private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.RadioButton encryptionRadiobtn;
         private System.Windows.Forms.RadioButton decryptionRadiobtn;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -243,5 +243,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.Button Clearbtn;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
