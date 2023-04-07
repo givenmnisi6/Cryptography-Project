@@ -1,5 +1,6 @@
 ﻿using Cryptography_Project.Custom;
 using Cryptography_Project.Transposition;
+using Cryptography_Project.Vernam;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,8 +65,8 @@ namespace Cryptography_Project
 
                         if (int.TryParse(encryptionTextbox.Text, out test))
                         {
-                            TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
-                            cipherTextbox.Text = trans.Encrypt(plainText);
+                            TranspositionText transposition = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
+                            cipherTextbox.Text = transposition.Encrypt(plainText);
                         }
                         MessageBox.Show("Sucessfully encrypted the text with the transposition algorithm!");
                     }
@@ -75,8 +76,8 @@ namespace Cryptography_Project
 
                         if (int.TryParse(encryptionTextbox.Text, out test))
                         {
-                            TranspositionText trans = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
-                            cipherTextbox.Text = trans.Decrypt(plainText);
+                            TranspositionText transposition = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
+                            cipherTextbox.Text = transposition.Decrypt(plainText);
                         }
                         MessageBox.Show("Sucessfully decrypted the text with the transposition algorithm!");
                     }
@@ -85,23 +86,40 @@ namespace Cryptography_Project
                 {
                     if (encryptionRadiobtn.Checked)
                     {
-                        CustomText customText = new CustomText();
-                        cipherTextbox.Text = customText.CustomTextEncryption(plainText, encryptionKey);
+                        CustomText custom = new CustomText();
+                        cipherTextbox.Text = custom.CustomTextEncryption(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
-                        CustomText customText = new CustomText();
-                        cipherTextbox.Text = customText.CustomTextDecryption(plainText, encryptionKey);
+                        CustomText custom = new CustomText();
+                        cipherTextbox.Text = custom.CustomTextDecryption(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
+                    }
+                } 
+                else if (comboBox1.SelectedItem.ToString() == "Vernam")
+                {
+                    if (encryptionRadiobtn.Checked)
+                    {
+                        VernamText vernam = new VernamText();
+                        cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
+                        MessageBox.Show("Sucessfully encrypted the text with the Vernam algorithm!");
+                    }
+                    else if (decryptionRadiobtn.Checked)
+                    {
+                        VernamText vernam = new VernamText();
+                        cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
+                        MessageBox.Show("Sucessfully decrypted the text with the Vernam algorithm!");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("You need to input text and a numerical key");
+                MessageBox.Show("Please check your inputs");
             }
         }
+
+
         private void Clearbtn_Click(object sender, EventArgs e)
         {
             plainTextbox.Text = "";
