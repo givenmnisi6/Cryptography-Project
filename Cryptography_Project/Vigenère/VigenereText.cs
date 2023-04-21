@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography_Project
 {
@@ -11,6 +9,7 @@ namespace Cryptography_Project
         public String VigenereTextEncrypt(String plain, String key)
         {
             Dictionary <sbyte, char> AlphabetOrder = new Dictionary <sbyte, char> ();
+
             AlphabetOrder.Add(0, 'A');
             AlphabetOrder.Add(1, 'B');
             AlphabetOrder.Add(2, 'C');
@@ -41,6 +40,7 @@ namespace Cryptography_Project
             key = key.ToUpper();
             plain = plain.ToUpper();
 
+            //store the cipher Text
             string cipherText = "";
 
             int i = 0;

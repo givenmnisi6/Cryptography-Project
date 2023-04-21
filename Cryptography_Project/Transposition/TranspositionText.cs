@@ -102,7 +102,8 @@ namespace Cryptography_Project.Transposition
                 return result;
             }
 
-            //This 'shifts' the keys into the correct position, it receives the alphabet in numerical order, the key value and the input string, it then returns the new string result
+            //This 'shifts' the keys into the correct position, it receives the alphabet in numerical order,
+            //the key value and the input string, it then returns the new string result
             internal static string Shift(string token, string Key, Mode mode, Dictionary<char, int> alphabetSorted)
             {
                 string result = "";
