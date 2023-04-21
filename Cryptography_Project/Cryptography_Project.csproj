@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="CreateDictionary.cs" />
     <Compile Include="Custom\CustomText.cs" />
+    <Compile Include="FileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileForm.Designer.cs">
+      <DependentUpon>FileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="Transposition\TranspositionText.cs" />
     <Compile Include="Vernam\VernamText.cs" />
     <Compile Include="Vigenère\VigenereText.cs" />
+    <EmbeddedResource Include="FileForm.resx">
+      <DependentUpon>FileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextForm.resx">
       <DependentUpon>TextForm.cs</DependentUpon>
     </EmbeddedResource>
