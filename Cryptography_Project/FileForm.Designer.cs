@@ -33,7 +33,7 @@
             this.encryptionRadiobtn = new System.Windows.Forms.RadioButton();
             this.Clearbtn = new System.Windows.Forms.Button();
             this.Backbtn = new System.Windows.Forms.Button();
-            this.Textbtn = new System.Windows.Forms.Button();
+            this.Filebtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.outputTextbox = new System.Windows.Forms.TextBox();
@@ -42,9 +42,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.keyTextbox = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Openbtn = new System.Windows.Forms.Button();
+            this.OpenKeybtn = new System.Windows.Forms.Button();
+            this.Savebtn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,14 +104,15 @@
             this.Backbtn.UseVisualStyleBackColor = true;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
-            // Textbtn
+            // Filebtn
             // 
-            this.Textbtn.Location = new System.Drawing.Point(135, 227);
-            this.Textbtn.Name = "Textbtn";
-            this.Textbtn.Size = new System.Drawing.Size(188, 60);
-            this.Textbtn.TabIndex = 31;
-            this.Textbtn.Text = "DONE";
-            this.Textbtn.UseVisualStyleBackColor = true;
+            this.Filebtn.Location = new System.Drawing.Point(135, 227);
+            this.Filebtn.Name = "Filebtn";
+            this.Filebtn.Size = new System.Drawing.Size(188, 60);
+            this.Filebtn.TabIndex = 31;
+            this.Filebtn.Text = "DONE";
+            this.Filebtn.UseVisualStyleBackColor = true;
+            this.Filebtn.Click += new System.EventHandler(this.Filebtn_Click);
             // 
             // label3
             // 
@@ -174,7 +177,7 @@
             this.keyTextbox.Location = new System.Drawing.Point(111, 67);
             this.keyTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.keyTextbox.Name = "keyTextbox";
-            this.keyTextbox.Size = new System.Drawing.Size(151, 20);
+            this.keyTextbox.Size = new System.Drawing.Size(373, 20);
             this.keyTextbox.TabIndex = 24;
             // 
             // lblKey
@@ -187,45 +190,52 @@
             this.lblKey.TabIndex = 25;
             this.lblKey.Text = "Key Location:";
             // 
-            // button1
+            // Openbtn
             // 
-            this.button1.Location = new System.Drawing.Point(507, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Open File";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Openbtn.Location = new System.Drawing.Point(507, 27);
+            this.Openbtn.Name = "Openbtn";
+            this.Openbtn.Size = new System.Drawing.Size(88, 23);
+            this.Openbtn.TabIndex = 35;
+            this.Openbtn.Text = "Open File";
+            this.Openbtn.UseVisualStyleBackColor = true;
+            this.Openbtn.Click += new System.EventHandler(this.Openbtn_Click);
             // 
-            // button2
+            // OpenKeybtn
             // 
-            this.button2.Location = new System.Drawing.Point(507, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Open Key File";
-            this.button2.UseVisualStyleBackColor = true;
+            this.OpenKeybtn.Location = new System.Drawing.Point(507, 64);
+            this.OpenKeybtn.Name = "OpenKeybtn";
+            this.OpenKeybtn.Size = new System.Drawing.Size(88, 23);
+            this.OpenKeybtn.TabIndex = 36;
+            this.OpenKeybtn.Text = "Open Key File";
+            this.OpenKeybtn.UseVisualStyleBackColor = true;
+            this.OpenKeybtn.Click += new System.EventHandler(this.OpenKeybtn_Click);
             // 
-            // button3
+            // Savebtn
             // 
-            this.button3.Location = new System.Drawing.Point(507, 107);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "Save File";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Savebtn.Location = new System.Drawing.Point(507, 107);
+            this.Savebtn.Name = "Savebtn";
+            this.Savebtn.Size = new System.Drawing.Size(88, 23);
+            this.Savebtn.TabIndex = 37;
+            this.Savebtn.Text = "Save File";
+            this.Savebtn.UseVisualStyleBackColor = true;
+            this.Savebtn.Click += new System.EventHandler(this.Savebtn_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Savebtn);
+            this.Controls.Add(this.OpenKeybtn);
+            this.Controls.Add(this.Openbtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Clearbtn);
             this.Controls.Add(this.Backbtn);
-            this.Controls.Add(this.Textbtn);
+            this.Controls.Add(this.Filebtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.outputTextbox);
@@ -250,7 +260,7 @@
         private System.Windows.Forms.RadioButton encryptionRadiobtn;
         private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.Button Backbtn;
-        private System.Windows.Forms.Button Textbtn;
+        private System.Windows.Forms.Button Filebtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox outputTextbox;
@@ -259,8 +269,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox keyTextbox;
         private System.Windows.Forms.Label lblKey;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Openbtn;
+        private System.Windows.Forms.Button OpenKeybtn;
+        private System.Windows.Forms.Button Savebtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
