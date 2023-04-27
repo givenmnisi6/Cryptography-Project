@@ -45,6 +45,7 @@
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Clearbtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Custombtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -132,8 +133,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Transposition",
             "Vigenere",
-            "Vernam",
-            "B&G InHouse"});
+            "Vernam"});
             this.comboBox1.Location = new System.Drawing.Point(111, 154);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -155,7 +155,7 @@
             this.Textbtn.Name = "Textbtn";
             this.Textbtn.Size = new System.Drawing.Size(188, 60);
             this.Textbtn.TabIndex = 19;
-            this.Textbtn.Text = "DONE";
+            this.Textbtn.Text = "SUBMIT";
             this.Textbtn.UseVisualStyleBackColor = true;
             this.Textbtn.Click += new System.EventHandler(this.Textbtn_Click);
             // 
@@ -198,11 +198,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cryptography Method";
             // 
+            // Custombtn
+            // 
+            this.Custombtn.Location = new System.Drawing.Point(573, 121);
+            this.Custombtn.Name = "Custombtn";
+            this.Custombtn.Size = new System.Drawing.Size(122, 23);
+            this.Custombtn.TabIndex = 23;
+            this.Custombtn.Text = "B&&G InHouse";
+            this.Custombtn.UseVisualStyleBackColor = true;
+            this.Custombtn.Click += new System.EventHandler(this.Custombtn_Click);
+            // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 414);
+            this.Controls.Add(this.Custombtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Clearbtn);
             this.Controls.Add(this.Backbtn);
@@ -244,5 +255,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Custombtn;
     }
 }
