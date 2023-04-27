@@ -47,6 +47,7 @@
             this.Savebtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Custombtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,8 +132,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Transposition",
             "Vigenere",
-            "Vernam",
-            "B&G InHouse"});
+            "Vernam"});
             this.comboBox1.Location = new System.Drawing.Point(111, 146);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -224,11 +224,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Custombtn
+            // 
+            this.Custombtn.Location = new System.Drawing.Point(629, 112);
+            this.Custombtn.Name = "Custombtn";
+            this.Custombtn.Size = new System.Drawing.Size(122, 23);
+            this.Custombtn.TabIndex = 38;
+            this.Custombtn.Text = "B&&G InHouse";
+            this.Custombtn.UseVisualStyleBackColor = true;
+            this.Custombtn.Click += new System.EventHandler(this.Custombtn_Click);
+            // 
             // FileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 450);
+            this.Controls.Add(this.Custombtn);
             this.Controls.Add(this.Savebtn);
             this.Controls.Add(this.OpenKeybtn);
             this.Controls.Add(this.Openbtn);
@@ -274,5 +285,6 @@
         private System.Windows.Forms.Button Savebtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button Custombtn;
     }
 }

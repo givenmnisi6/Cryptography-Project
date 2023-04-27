@@ -68,6 +68,13 @@ namespace Cryptography_Project
             }
         }
 
+        private void Custombtn_Click(object sender, EventArgs e)
+        {
+            //creating an instance of the TextEncryption form
+            CustomFileForm customfile = new CustomFileForm();
+            customfile.ShowDialog();
+        }
+
         private void Backbtn_Click(object sender, EventArgs e)
         {
             this.Close();
