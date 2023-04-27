@@ -28,5 +28,12 @@ namespace Cryptography_Project
         {
             this.Close();
         }
+
+        private void Filesbtn_Click(object sender, EventArgs e)
+        {
+            //creating an instance of the TextEncryption form
+            FileForm file = new FileForm();
+            file.ShowDialog();
+        }
     }
 }

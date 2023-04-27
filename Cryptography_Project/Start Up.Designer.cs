@@ -62,6 +62,7 @@
             this.Filesbtn.TabIndex = 6;
             this.Filesbtn.Text = "FILES";
             this.Filesbtn.UseVisualStyleBackColor = true;
+            this.Filesbtn.Click += new System.EventHandler(this.Filesbtn_Click);
             // 
             // Textbtn
             // 

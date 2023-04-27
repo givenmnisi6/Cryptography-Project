@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography_Project
 {
     class VigenereText
     {
+        //Vigenere Text Encryption
         public String VigenereTextEncrypt(String plain, String key)
         {
-            Dictionary <sbyte, char> AlphabetOrder = new Dictionary <sbyte, char> ();
-            AlphabetOrder.Add(0, 'A');
+            //create a dictionary to store the alphabet
+            Dictionary<sbyte, char> AlphabetOrder = new Dictionary <sbyte, char> ();
+
+            //add the letters to the dictionary
+            AlphabetOrder.Add(0, 'A'); 
             AlphabetOrder.Add(1, 'B');
             AlphabetOrder.Add(2, 'C');
             AlphabetOrder.Add(3, 'D');
@@ -38,43 +40,57 @@ namespace Cryptography_Project
             AlphabetOrder.Add(24, 'Y');
             AlphabetOrder.Add(25, 'Z');
 
+            //make the key and plain text uppercase
             key = key.ToUpper();
             plain = plain.ToUpper();
 
+            //store the cipher Text
             string cipherText = "";
 
             int i = 0;
 
-            foreach (char element in plain)
-            {
-                if (!Char.IsLetter(element))
+            //loop through the plain text
+            try {
+                foreach (char element in plain)
                 {
-                    cipherText += element;
-                }
-                else
-                {
-                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key;
-                    sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
-                    sbyte Final = (sbyte)(TOrder + KOrder);
-                    if (Final > 25)
+                    //if the character is not a letter, add it to the cipher text
+                    if (!Char.IsLetter(element))
                     {
-                        Final -= 26;
+                        cipherText += element;
                     }
-                    cipherText += AlphabetOrder[Final];
-                    i++;
+                    else
+                    {
+                        sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; //get the order of the letter in the alphabet
+                        sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key; //get the order of the letter in the alphabet
+                        sbyte Final = (sbyte)(TOrder + KOrder); //add the two orders together
+                        if (Final > 25) //if the final order is greater than 25, subtract 26
+                        {
+                            Final -= 26;
+                        }
+                        cipherText += AlphabetOrder[Final]; //add the letter to the cipher text
+                        i++;
+                    }
+                    if (i == key.Length) //if the key is shorter than the plain text, start over
+                    {
+                        i = 0;
+                    }
                 }
-                if (i == key.Length)
-                {
-                    i = 0;
-                }
+                return cipherText;
+            } catch (Exception e)
+            {
+                return ("Error" + e.Message);
             }
-            return cipherText;
+            
         }
 
+        //Vigenere Text Decryption
         public String VigenereTextDecrypt(String mixed, String key)
         {
+            //create a dictionary to store the alphabet
             Dictionary <sbyte, char> AlphabetOrder = new Dictionary <sbyte, char>();
-            AlphabetOrder.Add(0, 'A');
+
+            //add the letters to the dictionary
+            AlphabetOrder.Add(0, 'A'); 
             AlphabetOrder.Add(1, 'B');
             AlphabetOrder.Add(2, 'C');
             AlphabetOrder.Add(3, 'D');
@@ -101,38 +117,48 @@ namespace Cryptography_Project
             AlphabetOrder.Add(24, 'Y');
             AlphabetOrder.Add(25, 'Z');
 
+            //make the key and cipher text uppercase
             key = key.ToUpper();
             mixed = mixed.ToUpper();
 
+            //store the plain text
             string plainText = "";
 
             int i = 0;
 
-            foreach (char element in mixed)
+            try
             {
-                if (!Char.IsLetter(element))
+                //loop through the cipher text
+                foreach (char element in mixed)
                 {
-                    plainText += element;
-                }
-                else
-                {
-                    sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key;
-                    sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
-                    sbyte Final = (sbyte)(TOrder - KOrder);
-                    if (Final < 0)
+                    if (!Char.IsLetter(element))
                     {
-                        Final += 26;
+                        plainText += element;
                     }
-                    plainText += AlphabetOrder[Final];
-
-                    i++;
+                    else
+                    {
+                        sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; //get the order of the letter in the alphabet
+                        sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
+                        sbyte Final = (sbyte)(TOrder - KOrder);
+                        if (Final < 0) //if the final order is less than 0, add 26
+                        {
+                            Final += 26;
+                        }
+                        plainText += AlphabetOrder[Final]; //add the letter to the plain text
+                         
+                        i++;
+                    }
+                    if (i == key.Length) //if the key is shorter than the cipher text, start over
+                    {
+                        i = 0;
+                    }
                 }
-                if (i == key.Length)
-                {
-                    i = 0;
-                }
+                return plainText;
             }
-            return plainText;
+            catch (Exception e)
+            {
+                return ("Error" + e.Message);
+            }
         }
     }
 }

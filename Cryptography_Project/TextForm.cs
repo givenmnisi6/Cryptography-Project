@@ -82,21 +82,6 @@ namespace Cryptography_Project
                         MessageBox.Show("Sucessfully decrypted the text with the transposition algorithm!");
                     }
                 } 
-                else if(comboBox1.SelectedItem.ToString() == "B&G InHouse")
-                {
-                    if (encryptionRadiobtn.Checked)
-                    {
-                        CustomText custom = new CustomText();
-                        cipherTextbox.Text = custom.CustomTextEncryption(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
-                    }
-                    else if (decryptionRadiobtn.Checked)
-                    {
-                        CustomText custom = new CustomText();
-                        cipherTextbox.Text = custom.CustomTextDecryption(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
-                    }
-                } 
                 else if (comboBox1.SelectedItem.ToString() == "Vernam")
                 {
                     if (encryptionRadiobtn.Checked)
@@ -119,6 +104,12 @@ namespace Cryptography_Project
             }
         }
 
+        private void Custombtn_Click(object sender, EventArgs e)
+        {
+            //creating an instance of the TextEncryption form
+            CustomForm custom = new CustomForm();
+            custom.ShowDialog();
+        }
 
         private void Clearbtn_Click(object sender, EventArgs e)
         {
