@@ -111,7 +111,7 @@
             this.Filebtn.Name = "Filebtn";
             this.Filebtn.Size = new System.Drawing.Size(188, 60);
             this.Filebtn.TabIndex = 31;
-            this.Filebtn.Text = "DONE";
+            this.Filebtn.Text = "SUBMIT";
             this.Filebtn.UseVisualStyleBackColor = true;
             this.Filebtn.Click += new System.EventHandler(this.Filebtn_Click);
             // 
@@ -142,6 +142,7 @@
             // 
             this.outputTextbox.Location = new System.Drawing.Point(111, 107);
             this.outputTextbox.Name = "outputTextbox";
+            this.outputTextbox.ReadOnly = true;
             this.outputTextbox.Size = new System.Drawing.Size(373, 20);
             this.outputTextbox.TabIndex = 26;
             // 
@@ -159,6 +160,7 @@
             // 
             this.browseTextbox.Location = new System.Drawing.Point(111, 31);
             this.browseTextbox.Name = "browseTextbox";
+            this.browseTextbox.ReadOnly = true;
             this.browseTextbox.Size = new System.Drawing.Size(373, 20);
             this.browseTextbox.TabIndex = 23;
             // 
@@ -177,6 +179,7 @@
             this.keyTextbox.Location = new System.Drawing.Point(111, 67);
             this.keyTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.keyTextbox.Name = "keyTextbox";
+            this.keyTextbox.ReadOnly = true;
             this.keyTextbox.Size = new System.Drawing.Size(373, 20);
             this.keyTextbox.TabIndex = 24;
             // 

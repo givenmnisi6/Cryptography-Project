@@ -86,7 +86,7 @@ namespace Cryptography_Project.Transposition
             Encrypt, Decrypt
         }
 
-        internal class Common 
+       /* internal class Common 
         {
             //This retrieves the new value for a given letter based on the numerical value of the alphabet character and the key
             internal static int GetAlphabetPosition(int textPosition, int keyPosition, Mode mode)
@@ -125,6 +125,6 @@ namespace Cryptography_Project.Transposition
                 }
                 return result; //This returns the result string
             }
-        }
+        }*/
     }
 }

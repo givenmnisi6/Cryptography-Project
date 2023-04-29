@@ -46,6 +46,8 @@
             this.Savebtn = new System.Windows.Forms.Button();
             this.Opentwobtn = new System.Windows.Forms.Button();
             this.Savetwobtn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,6 +126,7 @@
             // 
             this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
             this.cipherTextbox.Name = "cipherTextbox";
+            this.cipherTextbox.ReadOnly = true;
             this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
             this.cipherTextbox.TabIndex = 27;
             // 
@@ -141,6 +144,7 @@
             // 
             this.plainTextbox.Location = new System.Drawing.Point(111, 39);
             this.plainTextbox.Name = "plainTextbox";
+            this.plainTextbox.ReadOnly = true;
             this.plainTextbox.Size = new System.Drawing.Size(373, 20);
             this.plainTextbox.TabIndex = 24;
             // 
@@ -159,6 +163,7 @@
             this.encryptionTextbox.Location = new System.Drawing.Point(111, 75);
             this.encryptionTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.encryptionTextbox.Name = "encryptionTextbox";
+            this.encryptionTextbox.ReadOnly = true;
             this.encryptionTextbox.Size = new System.Drawing.Size(373, 20);
             this.encryptionTextbox.TabIndex = 25;
             // 
@@ -176,6 +181,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(111, 150);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(373, 20);
             this.textBox1.TabIndex = 36;
             // 
@@ -187,15 +193,17 @@
             this.Openbtn.TabIndex = 37;
             this.Openbtn.Text = "Open File";
             this.Openbtn.UseVisualStyleBackColor = true;
+            this.Openbtn.Click += new System.EventHandler(this.Openbtn_Click);
             // 
             // Savebtn
             // 
-            this.Savebtn.Location = new System.Drawing.Point(514, 78);
+            this.Savebtn.Location = new System.Drawing.Point(514, 72);
             this.Savebtn.Name = "Savebtn";
             this.Savebtn.Size = new System.Drawing.Size(88, 23);
             this.Savebtn.TabIndex = 38;
             this.Savebtn.Text = "Save As";
             this.Savebtn.UseVisualStyleBackColor = true;
+            this.Savebtn.Click += new System.EventHandler(this.Savebtn_Click);
             // 
             // Opentwobtn
             // 
@@ -205,6 +213,7 @@
             this.Opentwobtn.TabIndex = 39;
             this.Opentwobtn.Text = "Open File";
             this.Opentwobtn.UseVisualStyleBackColor = true;
+            this.Opentwobtn.Click += new System.EventHandler(this.Opentwobtn_Click);
             // 
             // Savetwobtn
             // 
@@ -214,6 +223,10 @@
             this.Savetwobtn.TabIndex = 40;
             this.Savetwobtn.Text = "Save As";
             this.Savetwobtn.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // CustomFileForm
             // 
@@ -264,5 +277,7 @@
         private System.Windows.Forms.Button Savebtn;
         private System.Windows.Forms.Button Opentwobtn;
         private System.Windows.Forms.Button Savetwobtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

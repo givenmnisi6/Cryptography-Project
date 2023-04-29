@@ -11,9 +11,9 @@ namespace Cryptography_Project.Custom
     internal class CustomText
     {
         //String plainText;
-        //Swap the first and last character of the string and store it into new string, Given - > ivenG
-        //Reverse the string and store it into new string, ivenG - > Gnevi
-        //Move each character 3 positions forward in ASCII table and store it into new string, Gnevi - > Jhylq
+        //Swap the first and last character of the string and store it into new string, “James” ≫ “sameJ”
+        //Reverse the string and store it into new string, “sameJ” ≫ “Jemas”
+        //Move each character 3 positions forward in ASCII table and store it into new string, “sameJ” ≫ “Jemas”
         public String swapText(String plainText)
         {
             int indexFirstPosition, indexLastPosition, temp;
@@ -62,7 +62,7 @@ namespace Cryptography_Project.Custom
                 charInArray = charArray[i];
 
                 ASCIIValue = (char)charInArray;
-                newASCIIValue = ASCIIValue + 3; //moving 3 positions forward in ASCII table
+                newASCIIValue = ASCIIValue + 5; //moving 3 positions forward in ASCII table
 
                 newCharInArray = (char) newASCIIValue;
                 newCipherText += newCharInArray;
@@ -83,7 +83,7 @@ namespace Cryptography_Project.Custom
                 charInArray = charArray[i];
 
                 ASCIIValue = (char)charInArray;
-                newASCIIValue = ASCIIValue - 3; //moving 3 positions backward in ASCII table
+                newASCIIValue = ASCIIValue - 5; //moving 3 positions backward in ASCII table
 
                 newCharInArray = (char) newASCIIValue;
                 newCipherText += newCharInArray;
