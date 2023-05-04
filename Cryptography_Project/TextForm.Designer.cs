@@ -55,6 +55,7 @@
             // 
             this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
             this.cipherTextbox.Name = "cipherTextbox";
+            this.cipherTextbox.ReadOnly = true;
             this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
             this.cipherTextbox.TabIndex = 13;
             // 

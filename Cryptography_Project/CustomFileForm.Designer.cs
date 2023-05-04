@@ -29,32 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.decryptionRadiobtn = new System.Windows.Forms.RadioButton();
-            this.encryptionRadiobtn = new System.Windows.Forms.RadioButton();
+            this.decryptRadiobtn = new System.Windows.Forms.RadioButton();
+            this.encryptRadiobtn = new System.Windows.Forms.RadioButton();
             this.Clearbtn = new System.Windows.Forms.Button();
             this.Backbtn = new System.Windows.Forms.Button();
             this.Textbtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cipherTextbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.plainTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.encryptionTextbox = new System.Windows.Forms.TextBox();
-            this.lblKey = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Openbtn = new System.Windows.Forms.Button();
-            this.Savebtn = new System.Windows.Forms.Button();
-            this.Opentwobtn = new System.Windows.Forms.Button();
-            this.Savetwobtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.decryptionRadiobtn);
-            this.groupBox1.Controls.Add(this.encryptionRadiobtn);
+            this.groupBox1.Controls.Add(this.decryptRadiobtn);
+            this.groupBox1.Controls.Add(this.encryptRadiobtn);
             this.groupBox1.Location = new System.Drawing.Point(629, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(122, 75);
@@ -62,28 +55,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cryptography Method";
             // 
-            // decryptionRadiobtn
+            // decryptRadiobtn
             // 
-            this.decryptionRadiobtn.AutoSize = true;
-            this.decryptionRadiobtn.Location = new System.Drawing.Point(12, 44);
-            this.decryptionRadiobtn.Margin = new System.Windows.Forms.Padding(2);
-            this.decryptionRadiobtn.Name = "decryptionRadiobtn";
-            this.decryptionRadiobtn.Size = new System.Drawing.Size(65, 17);
-            this.decryptionRadiobtn.TabIndex = 5;
-            this.decryptionRadiobtn.TabStop = true;
-            this.decryptionRadiobtn.Text = "Decrypt ";
-            this.decryptionRadiobtn.UseVisualStyleBackColor = true;
+            this.decryptRadiobtn.AutoSize = true;
+            this.decryptRadiobtn.Location = new System.Drawing.Point(12, 44);
+            this.decryptRadiobtn.Margin = new System.Windows.Forms.Padding(2);
+            this.decryptRadiobtn.Name = "decryptRadiobtn";
+            this.decryptRadiobtn.Size = new System.Drawing.Size(65, 17);
+            this.decryptRadiobtn.TabIndex = 5;
+            this.decryptRadiobtn.TabStop = true;
+            this.decryptRadiobtn.Text = "Decrypt ";
+            this.decryptRadiobtn.UseVisualStyleBackColor = true;
             // 
-            // encryptionRadiobtn
+            // encryptRadiobtn
             // 
-            this.encryptionRadiobtn.AutoSize = true;
-            this.encryptionRadiobtn.Location = new System.Drawing.Point(12, 22);
-            this.encryptionRadiobtn.Margin = new System.Windows.Forms.Padding(2);
-            this.encryptionRadiobtn.Name = "encryptionRadiobtn";
-            this.encryptionRadiobtn.Size = new System.Drawing.Size(64, 17);
-            this.encryptionRadiobtn.TabIndex = 4;
-            this.encryptionRadiobtn.Text = "Encrypt ";
-            this.encryptionRadiobtn.UseVisualStyleBackColor = true;
+            this.encryptRadiobtn.AutoSize = true;
+            this.encryptRadiobtn.Location = new System.Drawing.Point(12, 22);
+            this.encryptRadiobtn.Margin = new System.Windows.Forms.Padding(2);
+            this.encryptRadiobtn.Name = "encryptRadiobtn";
+            this.encryptRadiobtn.Size = new System.Drawing.Size(64, 17);
+            this.encryptRadiobtn.TabIndex = 4;
+            this.encryptRadiobtn.Text = "Encrypt ";
+            this.encryptRadiobtn.UseVisualStyleBackColor = true;
             // 
             // Clearbtn
             // 
@@ -111,34 +104,7 @@
             this.Textbtn.TabIndex = 32;
             this.Textbtn.Text = "SUBMIT";
             this.Textbtn.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "New file:";
-            // 
-            // cipherTextbox
-            // 
-            this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
-            this.cipherTextbox.Name = "cipherTextbox";
-            this.cipherTextbox.ReadOnly = true;
-            this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
-            this.cipherTextbox.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Local file:";
+            this.Textbtn.Click += new System.EventHandler(this.Textbtn_Click);
             // 
             // plainTextbox
             // 
@@ -154,36 +120,9 @@
             this.label1.Location = new System.Drawing.Point(11, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Local file:";
-            // 
-            // encryptionTextbox
-            // 
-            this.encryptionTextbox.Location = new System.Drawing.Point(111, 75);
-            this.encryptionTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.encryptionTextbox.Name = "encryptionTextbox";
-            this.encryptionTextbox.ReadOnly = true;
-            this.encryptionTextbox.Size = new System.Drawing.Size(373, 20);
-            this.encryptionTextbox.TabIndex = 25;
-            // 
-            // lblKey
-            // 
-            this.lblKey.AutoSize = true;
-            this.lblKey.Location = new System.Drawing.Point(8, 78);
-            this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(48, 13);
-            this.lblKey.TabIndex = 26;
-            this.lblKey.Text = "New file:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(111, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(373, 20);
-            this.textBox1.TabIndex = 36;
+            this.label1.Text = "File path";
             // 
             // Openbtn
             // 
@@ -195,62 +134,45 @@
             this.Openbtn.UseVisualStyleBackColor = true;
             this.Openbtn.Click += new System.EventHandler(this.Openbtn_Click);
             // 
-            // Savebtn
-            // 
-            this.Savebtn.Location = new System.Drawing.Point(514, 72);
-            this.Savebtn.Name = "Savebtn";
-            this.Savebtn.Size = new System.Drawing.Size(88, 23);
-            this.Savebtn.TabIndex = 38;
-            this.Savebtn.Text = "Save As";
-            this.Savebtn.UseVisualStyleBackColor = true;
-            this.Savebtn.Click += new System.EventHandler(this.Savebtn_Click);
-            // 
-            // Opentwobtn
-            // 
-            this.Opentwobtn.Location = new System.Drawing.Point(514, 115);
-            this.Opentwobtn.Name = "Opentwobtn";
-            this.Opentwobtn.Size = new System.Drawing.Size(88, 23);
-            this.Opentwobtn.TabIndex = 39;
-            this.Opentwobtn.Text = "Open File";
-            this.Opentwobtn.UseVisualStyleBackColor = true;
-            this.Opentwobtn.Click += new System.EventHandler(this.Opentwobtn_Click);
-            // 
-            // Savetwobtn
-            // 
-            this.Savetwobtn.Location = new System.Drawing.Point(514, 153);
-            this.Savetwobtn.Name = "Savetwobtn";
-            this.Savetwobtn.Size = new System.Drawing.Size(88, 23);
-            this.Savetwobtn.TabIndex = 40;
-            this.Savetwobtn.Text = "Save As";
-            this.Savetwobtn.UseVisualStyleBackColor = true;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Location = new System.Drawing.Point(8, 78);
+            this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(53, 13);
+            this.lblKey.TabIndex = 26;
+            this.lblKey.Text = "Password";
+            // 
+            // passwordTextbox
+            // 
+            this.passwordTextbox.Location = new System.Drawing.Point(111, 75);
+            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.Size = new System.Drawing.Size(192, 20);
+            this.passwordTextbox.TabIndex = 25;
             // 
             // CustomFileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 450);
-            this.Controls.Add(this.Savetwobtn);
-            this.Controls.Add(this.Opentwobtn);
-            this.Controls.Add(this.Savebtn);
             this.Controls.Add(this.Openbtn);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Clearbtn);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Textbtn);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cipherTextbox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.plainTextbox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.encryptionTextbox);
+            this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.lblKey);
             this.Name = "CustomFileForm";
             this.Text = "B&G File";
+            this.Load += new System.EventHandler(this.CustomFileForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -260,24 +182,17 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton decryptionRadiobtn;
-        private System.Windows.Forms.RadioButton encryptionRadiobtn;
+        private System.Windows.Forms.RadioButton decryptRadiobtn;
+        private System.Windows.Forms.RadioButton encryptRadiobtn;
         private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Button Textbtn;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox cipherTextbox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox plainTextbox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox encryptionTextbox;
-        private System.Windows.Forms.Label lblKey;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button Openbtn;
-        private System.Windows.Forms.Button Savebtn;
-        private System.Windows.Forms.Button Opentwobtn;
-        private System.Windows.Forms.Button Savetwobtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lblKey;
+        private System.Windows.Forms.TextBox passwordTextbox;
     }
 }

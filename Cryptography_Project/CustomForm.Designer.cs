@@ -109,13 +109,14 @@
             // 
             this.cipherTextbox.Location = new System.Drawing.Point(127, 84);
             this.cipherTextbox.Name = "cipherTextbox";
+            this.cipherTextbox.ReadOnly = true;
             this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
             this.cipherTextbox.TabIndex = 27;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 91);
+            this.label2.Location = new System.Drawing.Point(11, 87);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);

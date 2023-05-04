@@ -14,10 +14,34 @@ namespace Cryptography_Project
 {
     public partial class CustomFileForm : Form
     {
-        string key;
+        byte[] abc;
+        byte[,] table;
+
         public CustomFileForm()
         {
             InitializeComponent();
+        }
+        private void CustomFileForm_Load(object sender, EventArgs e)
+        {
+            InitializeTable();
+        }
+
+        private void InitializeTable()
+        {
+            abc = new byte[256];
+            for (int i = 0; i < 256; i++)
+            {
+                abc[i] = Convert.ToByte(i);
+            }
+
+            table = new byte[256, 256];
+            for (int i = 0; i < 256; i++)
+            {
+                for (int j = 0; j < 256; j++)
+                {
+                    table[i, j] = abc[(i + j) % 256];
+                }
+            }
         }
 
         private void Openbtn_Click(object sender, EventArgs e)
@@ -30,23 +54,111 @@ namespace Cryptography_Project
             }
         }
 
-        private void Savebtn_Click(object sender, EventArgs e)
+        private void Textbtn_Click(object sender, EventArgs e)
         {
-            string output;
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if(!File.Exists(plainTextbox.Text))
             {
-                output = saveFileDialog1.FileName;
-                encryptionTextbox.Text = output;
+                MessageBox.Show("File not found!");
+                return;
             }
-        }
-
-        private void Opentwobtn_Click(object sender, EventArgs e)
-        {
-            string outputtwo;
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if(string.IsNullOrEmpty(passwordTextbox.Text))
             {
-                outputtwo = saveFileDialog1.FileName;
-                cipherTextbox.Text = outputtwo;
+                MessageBox.Show("Please enter password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                byte[] content = File.ReadAllBytes(plainTextbox.Text);
+                byte[] password = Encoding.ASCII.GetBytes(passwordTextbox.Text);
+                byte[] keys = new byte[content.Length];
+                byte[] encrypted = new byte[content.Length];
+
+                for (int i = 0; i < content.Length; i++)
+                {
+                    keys[i] = password[i % password.Length];
+                }
+
+                if(encryptRadiobtn.Checked)
+                {
+                    for (int i = 0; i < content.Length; i++)
+                    {
+                        byte value = content[i];
+                        byte key = keys[i];
+                        int valueIndex = -1;
+                        int keyIndex = -1;
+
+                        for (int j = 0; j < 256; j++)
+                        {
+                            if (abc[j] == value)
+                            {
+                                valueIndex = j;
+                                break;
+                            }
+                        } 
+
+                        for (int j = 0; j < 256; j++)
+                        {
+                            if (abc[j] == key)
+                            {
+                                keyIndex = j;
+                                break;
+                            }
+                        }
+                        encrypted[i] = table[keyIndex, valueIndex];
+                    }
+                    string fileName = Path.GetFileNameWithoutExtension(plainTextbox.Text);
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Files (*" + fileName + " ) | *" + fileName;
+
+                    if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(saveFileDialog.FileName, encrypted);
+                        MessageBox.Show("File encrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                if (decryptRadiobtn.Checked)
+                {
+                    for (int i = 0; i < content.Length; i++)
+                    {
+                        byte value = content[i];
+                        byte key = keys[i];
+                        int valueIndex = -1;
+                        int keyIndex = -1;
+
+
+                        for (int j = 0; j < 256; j++)
+                        {
+                            if (abc[j] == key)
+                            {
+                                keyIndex = j;
+                            }
+                        }
+                        for (int j = 0; j < 256; j++)
+                        {
+                            if (table[keyIndex,j] == value)
+                            {
+                                valueIndex = j;
+                            }
+                        }
+
+                        encrypted[i] = abc[valueIndex];
+                    }
+                    string fileName = Path.GetFileNameWithoutExtension(plainTextbox.Text);
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Files (*" + fileName + " ) | *" + fileName;
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(saveFileDialog.FileName, encrypted);
+                        MessageBox.Show("File decrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
