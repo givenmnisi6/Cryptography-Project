@@ -58,7 +58,7 @@ namespace Cryptography_Project
         {
             if(!File.Exists(plainTextbox.Text))
             {
-                MessageBox.Show("File not found!");
+                MessageBox.Show("Please select a file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(string.IsNullOrEmpty(passwordTextbox.Text))
@@ -69,24 +69,24 @@ namespace Cryptography_Project
 
             try
             {
-                byte[] content = File.ReadAllBytes(plainTextbox.Text);
-                byte[] password = Encoding.ASCII.GetBytes(passwordTextbox.Text);
-                byte[] keys = new byte[content.Length];
-                byte[] encrypted = new byte[content.Length];
+                byte[] fileContent = File.ReadAllBytes(plainTextbox.Text);
+                byte[] passwordTemp = Encoding.ASCII.GetBytes(passwordTextbox.Text);
+                byte[] keys = new byte[fileContent.Length];
+                byte[] encrypted = new byte[fileContent.Length];
 
-                for (int i = 0; i < content.Length; i++)
+                for (int i = 0; i < fileContent.Length; i++)
                 {
-                    keys[i] = password[i % password.Length];
+                    keys[i] = passwordTemp[i % passwordTemp.Length];
                 }
 
-                if(encryptRadiobtn.Checked)
+
+                if (encryptRadiobtn.Checked)
                 {
-                    for (int i = 0; i < content.Length; i++)
+                    for (int i = 0; i < fileContent.Length; i++)
                     {
-                        byte value = content[i];
+                        byte value = fileContent[i];
                         byte key = keys[i];
-                        int valueIndex = -1;
-                        int keyIndex = -1;
+                        int valueIndex = -1, keyIndex = -1;
 
                         for (int j = 0; j < 256; j++)
                         {
@@ -95,8 +95,7 @@ namespace Cryptography_Project
                                 valueIndex = j;
                                 break;
                             }
-                        } 
-
+                        }
                         for (int j = 0; j < 256; j++)
                         {
                             if (abc[j] == key)
@@ -107,58 +106,57 @@ namespace Cryptography_Project
                         }
                         encrypted[i] = table[keyIndex, valueIndex];
                     }
-                    string fileName = Path.GetFileNameWithoutExtension(plainTextbox.Text);
-                    SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "Files (*" + fileName + " ) | *" + fileName;
+                    string fileName = Path.GetExtension(plainTextbox.Text);
+                    SaveFileDialog sd = new SaveFileDialog();
+                    sd.Filter = "Files (*" + fileName + " ) | *" + fileName;
 
-                    if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                    if (sd.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllBytes(saveFileDialog.FileName, encrypted);
-                        MessageBox.Show("File encrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        File.WriteAllBytes(sd.FileName, encrypted);
                     }
+                    MessageBox.Show("File encrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 if (decryptRadiobtn.Checked)
                 {
-                    for (int i = 0; i < content.Length; i++)
+                    for (int i = 0; i < fileContent.Length; i++)
                     {
-                        byte value = content[i];
+                        byte value = fileContent[i];
                         byte key = keys[i];
-                        int valueIndex = -1;
-                        int keyIndex = -1;
-
+                        int valueIndex = -1, keyIndex = -1;
 
                         for (int j = 0; j < 256; j++)
                         {
                             if (abc[j] == key)
                             {
                                 keyIndex = j;
+                                break;
                             }
                         }
                         for (int j = 0; j < 256; j++)
                         {
-                            if (table[keyIndex,j] == value)
+                            if (table[keyIndex, j] == value)
                             {
                                 valueIndex = j;
+                                break;
                             }
                         }
-
                         encrypted[i] = abc[valueIndex];
                     }
-                    string fileName = Path.GetFileNameWithoutExtension(plainTextbox.Text);
-                    SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "Files (*" + fileName + " ) | *" + fileName;
+                    string fileName = Path.GetExtension(plainTextbox.Text);
+                    SaveFileDialog sd = new SaveFileDialog();
+                    sd.Filter = "Files (*" + fileName + " ) | *" + fileName;
 
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    if (sd.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllBytes(saveFileDialog.FileName, encrypted);
-                        MessageBox.Show("File decrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        File.WriteAllBytes(sd.FileName, encrypted);
                     }
+                    MessageBox.Show("File decrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("File is in use");
             }
         }
     }
