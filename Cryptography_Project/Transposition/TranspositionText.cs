@@ -27,7 +27,6 @@ namespace Cryptography_Project.Transposition
             return Process(cipherText, Mode.Decrypt); //This calls the main method
         }
 
-
         private string Process(string message, Mode mode) //This is the main method that calls the other methods
         {
             int rows = encryptionKey;
@@ -84,47 +83,6 @@ namespace Cryptography_Project.Transposition
         internal enum Mode //This is the mode enum
         {
             Encrypt, Decrypt
-        }
-
-        internal class Common 
-        {
-            //This retrieves the new value for a given letter based on the numerical value of the alphabet character and the key
-            internal static int GetAlphabetPosition(int textPosition, int keyPosition, Mode mode)
-            {
-                int result = 0;
-
-                switch (mode)
-                {
-                    case Mode.Encrypt: //This gets the new value for the alphabet character
-                        result = (textPosition + keyPosition) % 26; //This gets the new value for the alphabet character
-                        break;
-                    case Mode.Decrypt:
-                        result = textPosition - keyPosition;
-
-                        if (result < 0)
-                        {
-                            result += 26;
-                        }
-                        break;
-                }
-                return result;
-            }
-
-            //This 'shifts' the keys into the correct position, it receives the alphabet in numerical order,
-            //the key value and the input string, it then returns the new string result
-            internal static string Shift(string token, string Key, Mode mode, Dictionary<char, int> alphabetSorted) 
-            {
-                string result = "";
-                int textPosition, keyPosition, resPosition = 0;
-                for (int i = 0; i < token.Length; i++)
-                {
-                    textPosition = alphabetSorted[token[i]]; //This gets the numerical value of the alphabet character
-                    keyPosition = alphabetSorted[Key[i]];    //This gets the numerical value of the key character
-                    resPosition = GetAlphabetPosition(textPosition, keyPosition, mode); //This gets the new value for the alphabet character
-                    result += alphabetSorted.Keys.ElementAt(resPosition); //This adds the new value to the result string
-                }
-                return result; //This returns the result string
-            }
         }
     }
 }

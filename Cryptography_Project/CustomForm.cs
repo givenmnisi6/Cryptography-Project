@@ -40,13 +40,13 @@ namespace Cryptography_Project
             {
                 CustomText custom = new CustomText();
                 cipherTextbox.Text = custom.encryptedText(custom.reverseText(custom.swapText(plainText)));
-                MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!");
+                MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (decryptionRadiobtn.Checked)
             {
                 CustomText custom = new CustomText();
                 cipherTextbox.Text = custom.decryptedText(custom.reverseText(custom.swapText(plainText)));
-                MessageBox.Show("Sucessfully encrypted the text with the B&G InHouse algorithm!"); 
+                MessageBox.Show("Sucessfully decrypted the text with the B&G InHouse algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -11,24 +11,29 @@ namespace Cryptography_Project.Custom
     internal class CustomText
     {
         //String plainText;
-
+        //Swap the first and last character of the string and store it into new string, “James” ≫ “sameJ”
+        //Reverse the string and store it into new string, “sameJ” ≫ “Jemas”
+        //Move each character 3 positions forward in ASCII table and store it into new string, “sameJ” ≫ “Jemas”
         public String swapText(String plainText)
         {
             int indexFirstPosition, indexLastPosition, temp;
             string newPlainText, middlePosition, firstPosition, lastPosition;
 
-            indexFirstPosition = 0;
-            indexLastPosition = plainText.Length - 1;
+            indexFirstPosition = 0;                     //index of first position
+            indexLastPosition = plainText.Length - 1;   //index of last position
 
-            middlePosition = plainText.Substring(1, indexLastPosition - 1);
+            middlePosition = plainText.Substring(1, indexLastPosition - 1); //middle position
 
-            temp = indexFirstPosition;
-            indexFirstPosition = indexLastPosition;
+            //swapping the position of first and last character
+            temp = indexFirstPosition;                  
+            indexFirstPosition = indexLastPosition;     
             indexLastPosition = temp;
 
-            firstPosition = plainText.Substring(indexFirstPosition, 1);
+            //getting the first and last character
+            firstPosition = plainText.Substring(indexFirstPosition, 1); 
             lastPosition = plainText.Substring(indexLastPosition, 1);
 
+            //new string
             newPlainText = firstPosition + middlePosition + lastPosition;
 
             return newPlainText;
@@ -37,7 +42,7 @@ namespace Cryptography_Project.Custom
         public String reverseText(String inputText)
         {
             string reversedText = "";
-            for (int i = inputText.Length - 1; i >= 0; i--)
+            for (int i = inputText.Length - 1; i >= 0; i--) //for loop to reverse the string
             {
                 reversedText += inputText[i];
             }
@@ -52,12 +57,12 @@ namespace Cryptography_Project.Custom
             char charInArray, newCharInArray;
             int ASCIIValue, newASCIIValue;
 
-            for (int i = 0; i < plainText.Length; i++)
+            for (int i = 0; i < plainText.Length; i++) //for loop to move each character 3 positions forward in ASCII table
             {
                 charInArray = charArray[i];
 
                 ASCIIValue = (char)charInArray;
-                newASCIIValue = ASCIIValue + 3;
+                newASCIIValue = ASCIIValue + 5; //moving 3 positions forward in ASCII table
 
                 newCharInArray = (char) newASCIIValue;
                 newCipherText += newCharInArray;
@@ -78,7 +83,7 @@ namespace Cryptography_Project.Custom
                 charInArray = charArray[i];
 
                 ASCIIValue = (char)charInArray;
-                newASCIIValue = ASCIIValue - 3;
+                newASCIIValue = ASCIIValue - 5; //moving 3 positions backward in ASCII table
 
                 newCharInArray = (char) newASCIIValue;
                 newCipherText += newCharInArray;

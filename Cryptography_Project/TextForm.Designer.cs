@@ -55,6 +55,7 @@
             // 
             this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
             this.cipherTextbox.Name = "cipherTextbox";
+            this.cipherTextbox.ReadOnly = true;
             this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
             this.cipherTextbox.TabIndex = 13;
             // 
@@ -92,6 +93,7 @@
             this.encryptionTextbox.Name = "encryptionTextbox";
             this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
             this.encryptionTextbox.TabIndex = 11;
+            this.encryptionTextbox.UseSystemPasswordChar = true;
             // 
             // lblKey
             // 

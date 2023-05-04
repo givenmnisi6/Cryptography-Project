@@ -37,14 +37,14 @@ namespace Cryptography_Project
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully encrypted the text with the Vigenere algorithm!");
+                        MessageBox.Show("Sucessfully encrypted the text with the Vigene algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     
                     else if (decryptionRadiobtn.Checked)
                     {
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully decrypted the text with the Vigenere algorithm!");
+                        MessageBox.Show("Sucessfully decrypted the text with the Vigene algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     } 
  
                     //error Providers
@@ -68,18 +68,18 @@ namespace Cryptography_Project
                             TranspositionText transposition = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
                             cipherTextbox.Text = transposition.Encrypt(plainText);
                         }
-                        MessageBox.Show("Sucessfully encrypted the text with the transposition algorithm!");
+                        MessageBox.Show("Sucessfully encrypted the text with the Transposition algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
-                        int test, keyValue;
+                        int keyValue;
 
-                        if (int.TryParse(encryptionTextbox.Text, out test))
+                        if (int.TryParse(encryptionTextbox.Text, out int test))
                         {
                             TranspositionText transposition = new TranspositionText(keyValue = Convert.ToInt32(encryptionTextbox.Text));
                             cipherTextbox.Text = transposition.Decrypt(plainText);
                         }
-                        MessageBox.Show("Sucessfully decrypted the text with the transposition algorithm!");
+                        MessageBox.Show("Sucessfully decrypted the text with the Transposition algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 } 
                 else if (comboBox1.SelectedItem.ToString() == "Vernam")
@@ -88,13 +88,13 @@ namespace Cryptography_Project
                     {
                         VernamText vernam = new VernamText();
                         cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully encrypted the text with the Vernam algorithm!");
+                        MessageBox.Show("Sucessfully encrypted the text with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
                         VernamText vernam = new VernamText();
                         cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
-                        MessageBox.Show("Sucessfully decrypted the text with the Vernam algorithm!");
+                        MessageBox.Show("Sucessfully decrypted the text with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

@@ -47,6 +47,7 @@
             this.Savebtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Custombtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +111,7 @@
             this.Filebtn.Name = "Filebtn";
             this.Filebtn.Size = new System.Drawing.Size(188, 60);
             this.Filebtn.TabIndex = 31;
-            this.Filebtn.Text = "DONE";
+            this.Filebtn.Text = "SUBMIT";
             this.Filebtn.UseVisualStyleBackColor = true;
             this.Filebtn.Click += new System.EventHandler(this.Filebtn_Click);
             // 
@@ -131,8 +132,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Transposition",
             "Vigenere",
-            "Vernam",
-            "B&G InHouse"});
+            "Vernam"});
             this.comboBox1.Location = new System.Drawing.Point(111, 146);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -142,6 +142,7 @@
             // 
             this.outputTextbox.Location = new System.Drawing.Point(111, 107);
             this.outputTextbox.Name = "outputTextbox";
+            this.outputTextbox.ReadOnly = true;
             this.outputTextbox.Size = new System.Drawing.Size(373, 20);
             this.outputTextbox.TabIndex = 26;
             // 
@@ -159,6 +160,7 @@
             // 
             this.browseTextbox.Location = new System.Drawing.Point(111, 31);
             this.browseTextbox.Name = "browseTextbox";
+            this.browseTextbox.ReadOnly = true;
             this.browseTextbox.Size = new System.Drawing.Size(373, 20);
             this.browseTextbox.TabIndex = 23;
             // 
@@ -177,6 +179,7 @@
             this.keyTextbox.Location = new System.Drawing.Point(111, 67);
             this.keyTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.keyTextbox.Name = "keyTextbox";
+            this.keyTextbox.ReadOnly = true;
             this.keyTextbox.Size = new System.Drawing.Size(373, 20);
             this.keyTextbox.TabIndex = 24;
             // 
@@ -224,11 +227,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Custombtn
+            // 
+            this.Custombtn.Location = new System.Drawing.Point(629, 112);
+            this.Custombtn.Name = "Custombtn";
+            this.Custombtn.Size = new System.Drawing.Size(122, 23);
+            this.Custombtn.TabIndex = 38;
+            this.Custombtn.Text = "B&&G InHouse";
+            this.Custombtn.UseVisualStyleBackColor = true;
+            this.Custombtn.Click += new System.EventHandler(this.Custombtn_Click);
+            // 
             // FileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 450);
+            this.Controls.Add(this.Custombtn);
             this.Controls.Add(this.Savebtn);
             this.Controls.Add(this.OpenKeybtn);
             this.Controls.Add(this.Openbtn);
@@ -274,5 +288,6 @@
         private System.Windows.Forms.Button Savebtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button Custombtn;
     }
 }
