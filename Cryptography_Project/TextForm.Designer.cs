@@ -93,6 +93,7 @@
             this.encryptionTextbox.Name = "encryptionTextbox";
             this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
             this.encryptionTextbox.TabIndex = 11;
+            this.encryptionTextbox.UseSystemPasswordChar = true;
             // 
             // lblKey
             // 

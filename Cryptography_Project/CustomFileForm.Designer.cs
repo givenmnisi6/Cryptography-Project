@@ -86,6 +86,7 @@
             this.Clearbtn.TabIndex = 34;
             this.Clearbtn.Text = "CLEAR";
             this.Clearbtn.UseVisualStyleBackColor = true;
+            this.Clearbtn.Click += new System.EventHandler(this.Clearbtn_Click);
             // 
             // Backbtn
             // 
@@ -95,6 +96,7 @@
             this.Backbtn.TabIndex = 33;
             this.Backbtn.Text = "BACK";
             this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // Textbtn
             // 
@@ -144,9 +146,9 @@
             this.lblKey.Location = new System.Drawing.Point(8, 78);
             this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(53, 13);
+            this.lblKey.Size = new System.Drawing.Size(67, 13);
             this.lblKey.TabIndex = 26;
-            this.lblKey.Text = "Password";
+            this.lblKey.Text = "Random key";
             // 
             // passwordTextbox
             // 
@@ -155,6 +157,7 @@
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(192, 20);
             this.passwordTextbox.TabIndex = 25;
+            this.passwordTextbox.UseSystemPasswordChar = true;
             // 
             // CustomFileForm
             // 

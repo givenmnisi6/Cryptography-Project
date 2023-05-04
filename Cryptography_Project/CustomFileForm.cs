@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cryptography_Project
 {
@@ -16,6 +17,7 @@ namespace Cryptography_Project
     {
         byte[] abc;
         byte[,] table;
+
 
         public CustomFileForm()
         {
@@ -107,8 +109,10 @@ namespace Cryptography_Project
                         encrypted[i] = table[keyIndex, valueIndex];
                     }
                     string fileName = Path.GetExtension(plainTextbox.Text);
-                    SaveFileDialog sd = new SaveFileDialog();
-                    sd.Filter = "Files (*" + fileName + " ) | *" + fileName;
+                    SaveFileDialog sd = new SaveFileDialog
+                    {
+                        Filter = "Files (*" + fileName + " ) | *" + fileName
+                    };
 
                     if (sd.ShowDialog() == DialogResult.OK)
                     {
@@ -158,6 +162,19 @@ namespace Cryptography_Project
             {
                 MessageBox.Show("File is in use");
             }
+        }
+
+        private void Backbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            plainTextbox.Text = "";
+            passwordTextbox.Text = "";
+            encryptRadiobtn.Checked = false;
+            decryptRadiobtn.Checked = false;
         }
     }
 }
