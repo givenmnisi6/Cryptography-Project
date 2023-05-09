@@ -41,6 +41,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.lblKey = new System.Windows.Forms.Label();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.generatebtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             this.plainTextbox.Location = new System.Drawing.Point(111, 39);
             this.plainTextbox.Name = "plainTextbox";
             this.plainTextbox.ReadOnly = true;
-            this.plainTextbox.Size = new System.Drawing.Size(373, 20);
+            this.plainTextbox.Size = new System.Drawing.Size(362, 20);
             this.plainTextbox.TabIndex = 24;
             // 
             // label1
@@ -128,9 +129,9 @@
             // 
             // Openbtn
             // 
-            this.Openbtn.Location = new System.Drawing.Point(514, 37);
+            this.Openbtn.Location = new System.Drawing.Point(495, 37);
             this.Openbtn.Name = "Openbtn";
-            this.Openbtn.Size = new System.Drawing.Size(88, 23);
+            this.Openbtn.Size = new System.Drawing.Size(107, 23);
             this.Openbtn.TabIndex = 37;
             this.Openbtn.Text = "Open File";
             this.Openbtn.UseVisualStyleBackColor = true;
@@ -155,15 +156,27 @@
             this.passwordTextbox.Location = new System.Drawing.Point(111, 75);
             this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.ReadOnly = true;
             this.passwordTextbox.Size = new System.Drawing.Size(192, 20);
             this.passwordTextbox.TabIndex = 25;
-            this.passwordTextbox.UseSystemPasswordChar = true;
+            // 
+            // generatebtn
+            // 
+            this.generatebtn.Location = new System.Drawing.Point(495, 81);
+            this.generatebtn.Margin = new System.Windows.Forms.Padding(2);
+            this.generatebtn.Name = "generatebtn";
+            this.generatebtn.Size = new System.Drawing.Size(107, 25);
+            this.generatebtn.TabIndex = 38;
+            this.generatebtn.Text = "Generate Key";
+            this.generatebtn.UseVisualStyleBackColor = true;
+            this.generatebtn.Click += new System.EventHandler(this.generatebtn_Click);
             // 
             // CustomFileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 450);
+            this.Controls.Add(this.generatebtn);
             this.Controls.Add(this.Openbtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Clearbtn);
@@ -197,5 +210,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.TextBox passwordTextbox;
+        private System.Windows.Forms.Button generatebtn;
     }
 }

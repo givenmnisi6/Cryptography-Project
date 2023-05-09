@@ -60,6 +60,7 @@
       <DependentUpon>CustomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Custom\CustomText.cs" />
+    <Compile Include="Custom\KeyGenerator.cs" />
     <Compile Include="FileForm.cs">
       <SubType>Form</SubType>
     </Compile>
