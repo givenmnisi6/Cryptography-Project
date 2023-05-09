@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Cryptography_Project.Vernam
 {
@@ -14,44 +16,83 @@ namespace Cryptography_Project.Vernam
         //input file is the file to be encrypted
         //encrypted file is the file that will contain the encrypted text
         //key file is the file that will contain the key
-        public void VernamFileEncryption(string input, string encrypted, string key) 
+        public void VernamFileEncrypt(string inputFile, string encryptedFile, string keyFile)
         {
-            byte[] original; //store the contents of the input file in bytes
+            byte[] originalBytes;  //store the contents of the input file in bytes
 
-            using (FileStream open = new FileStream(input, FileMode.Open)) //open the input file
+            using (FileStream fileStream = new FileStream(inputFile, FileMode.Open)) //open the input file
             {
-                original = new byte[open.Length]; //store the length of the input file in bytes
-                open.Read(original, 0, original.Length); //read the input file
+                originalBytes = new byte[fileStream.Length];                         //store the length of the input file in bytes
+                fileStream.Read(originalBytes, 0, originalBytes.Length);             //read the input file
             }
-            byte[] keyByte = new byte[original.Length]; //store the key in bytes
 
-            Random rand = new Random(); //create a random number generator
-            rand.NextBytes(keyByte); //generate a random key
+            byte[] keyBytes = new byte[originalBytes.Length];                       //store the key in bytes
+            Random rand = new Random();                                             //create a random number generator
+            rand.NextBytes(keyBytes);                                               //generate a random key
 
-            using (FileStream keyFile = new FileStream(key, FileMode.Create)) //create the key file
+            using (FileStream fileStream = new FileStream(keyFile, FileMode.Create)) //create the key file
             {
-                keyFile.Write(keyByte, 0, keyByte.Length); //write the key to the key file
+                fileStream.Write(keyBytes, 0, keyBytes.Length);                     //write the key to the key file
             }
-            byte[] cipherByte = new byte[original.Length]; //store the encrypted text in bytes
+                
+            byte[] encryptedBytes = new byte[originalBytes.Length];                 //store the encrypted text in bytes
+            VernamEncrypt(originalBytes, keyBytes, ref encryptedBytes);             //encrypt the input file
 
-            EncryptFile (original, keyByte, cipherByte); //encrypt the input file
 
-            using (FileStream cipherFile = new FileStream(encrypted + ".ver", FileMode.Create)) //create the encrypted file
+            using (FileStream fileStream = new FileStream(encryptedFile + ".ver", FileMode.Create)) //create the encrypted file
             {
-                cipherFile.Write(cipherByte, 0, cipherByte.Length);
+                fileStream.Write(encryptedBytes, 0, encryptedBytes.Length);
             }
         }
-        public void EncryptFile(byte[] original, byte[] key, byte[] cipher)
+
+        private void VernamEncrypt(byte[] inputBytes, byte[] keyBytes, ref byte[] outBytes)
         {
-            if (original.Length != key.Length || (key.Length != cipher.Length))
+            if (inputBytes.Length != keyBytes.Length || (keyBytes.Length != outBytes.Length))
             {
-                throw new Exception("The length of the original, key, and cipher must be the same.");
+                MessageBox.Show("The length of the original, key, and cipher must be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                for (int i = 0; i < original.Length; i++)
+                for (int i = 0; i < inputBytes.Length; i++)
                 {
-                    cipher[i] = (byte)(original[i] ^ key[i]);
+                    outBytes[i] = (byte)(inputBytes[i] ^ keyBytes[i]);
+                }
+            }
+        }
+
+        public void VernamFileDecrypt(string encryptedFile, string keyFile, string decryptedFile)
+        {
+            byte[] encryptedBytes;
+
+            using (FileStream fileStream = new FileStream(encryptedFile, FileMode.Open))
+            {
+                encryptedBytes = new byte[fileStream.Length];
+                fileStream.Read(encryptedBytes, 0, encryptedBytes.Length);
+            }
+
+            byte[] keyBytes;
+            using (FileStream fileStream = new FileStream(keyFile, FileMode.Open))
+            {
+                keyBytes = new byte[fileStream.Length];
+                fileStream.Read(keyBytes, 0, keyBytes.Length);
+            }
+
+            byte[] decryptedData = new byte[encryptedBytes.Length];
+            VernamEncrypt(encryptedBytes, keyBytes, ref decryptedData);
+
+            if (encryptedFile.Contains(".ver"))
+            {
+                encryptedFile.Replace(".ver", "");
+                using (FileStream fileStream = new FileStream(decryptedFile, FileMode.Create))
+                {
+                    fileStream.Write(decryptedData, 0, decryptedData.Length);
+                }
+            }
+            else
+            {
+                using (FileStream fileStream = new FileStream(decryptedFile, FileMode.Create))
+                {
+                    fileStream.Write(decryptedData, 0, decryptedData.Length);
                 }
             }
         }
