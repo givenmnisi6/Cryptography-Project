@@ -53,6 +53,40 @@ namespace Cryptography_Project
 
         private void Filebtn_Click(object sender, EventArgs e)
         {
+            if(comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an algorithm!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (encryptionRadiobtn.Checked == false && decryptionRadiobtn.Checked == false)
+            {
+                MessageBox.Show("Please select an operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (browseTextbox.Text == "")
+            {
+                MessageBox.Show("Please select a file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (keyTextbox.Text == "")
+            {
+                MessageBox.Show("Please select a key file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (outputTextbox.Text == "")
+            {
+                MessageBox.Show("Please select a file to save the output!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Vernam" && encryptionRadiobtn.Checked && keyTextbox.Text != "")
+            {
+                //VernamText vernam = new VernamText();
+                //vernam.VernamFileEncryption(input, output, key);
+                vernam.VernamFileEncrypt(input, output, key);
+                MessageBox.Show("Sucessfully encrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Vernam" && decryptionRadiobtn.Checked && keyTextbox.Text != "")
+            {
+                //VernamText vernam = new VernamText();
+                //vernam.VernamFileDecryption(input, output, key);
+                vernam.VernamFileDecrypt(input, key, output);
+                MessageBox.Show("Sucessfully decrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             if (comboBox1.SelectedItem.ToString() == "Vernam")
             {
                 if (encryptionRadiobtn.Checked)

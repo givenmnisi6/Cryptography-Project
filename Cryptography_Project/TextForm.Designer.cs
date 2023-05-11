@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cipherTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.plainTextbox = new System.Windows.Forms.TextBox();
@@ -41,13 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Textbtn = new System.Windows.Forms.Button();
             this.Backbtn = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Clearbtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Custombtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,14 +166,6 @@
             this.Backbtn.UseVisualStyleBackColor = true;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
-            // 
             // Clearbtn
             // 
             this.Clearbtn.Location = new System.Drawing.Point(394, 235);
@@ -230,8 +217,6 @@
             this.Controls.Add(this.lblKey);
             this.Name = "TextForm";
             this.Text = "Text Encryption";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -253,8 +238,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Textbtn;
         private System.Windows.Forms.Button Backbtn;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.Button Clearbtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Custombtn;

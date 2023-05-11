@@ -66,7 +66,12 @@ namespace Cryptography_Project
             }
             if(string.IsNullOrEmpty(passwordTextbox.Text))
             {
-                MessageBox.Show("Please enter password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please generate a key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(encryptRadiobtn.Checked == false && decryptRadiobtn.Checked == false)
+            {
+                MessageBox.Show("Please select an option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
