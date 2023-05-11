@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Cryptography_Project.Custom;
 
 namespace Cryptography_Project
 {
@@ -175,6 +176,12 @@ namespace Cryptography_Project
             passwordTextbox.Text = "";
             encryptRadiobtn.Checked = false;
             decryptRadiobtn.Checked = false;
+        }
+
+        private void generatebtn_Click(object sender, EventArgs e)
+        {
+            KeyGenerator keyGenerator = new KeyGenerator();
+            passwordTextbox.Text = Convert.ToBase64String(keyGenerator.generateKey());
         }
     }
 }

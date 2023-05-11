@@ -35,6 +35,17 @@ namespace Cryptography_Project
 
         private void Textbtn_Click(object sender, EventArgs e)
         {
+            if(plainTextbox.Text == "")
+            {
+                MessageBox.Show("Please enter a text to encrypt or decrypt!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(encryptionRadiobtn.Checked == false && decryptionRadiobtn.Checked == false)
+            {
+                MessageBox.Show("Please select an option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             plainText = plainTextbox.Text;
             if (encryptionRadiobtn.Checked)
             {

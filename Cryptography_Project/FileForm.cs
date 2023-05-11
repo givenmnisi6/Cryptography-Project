@@ -19,7 +19,7 @@ namespace Cryptography_Project
         }
 
         string input, output, key;
-        VernamFiles vernam = new VernamFiles();
+        readonly VernamFiles vernam = new VernamFiles();
 
         //Open the file to be encrypted or decrypted
         private void Openbtn_Click(object sender, EventArgs e)
@@ -57,13 +57,16 @@ namespace Cryptography_Project
             {
                 if (encryptionRadiobtn.Checked)
                 {
-                    vernam.VernamFileEncryption(input, key, output);
-                    MessageBox.Show("Sucessfully encrypted the file with the Vernam algorithm!");
+                    //vernam.VernamFileEncryption(input, output, key);
+                    vernam.VernamFileEncrypt(input, output, key);
+                    MessageBox.Show("Sucessfully encrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (decryptionRadiobtn.Checked)
                 {
-                    VernamText vernam = new VernamText();
-                    MessageBox.Show("Sucessfully decrypted the file with the Vernam algorithm!");
+                    //VernamText vernam = new VernamText();
+                    //vernam.VernamFileDecryption(input, output, key);
+                    vernam.VernamFileDecrypt(input, key, output);
+                    MessageBox.Show("Sucessfully decrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
