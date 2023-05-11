@@ -47,15 +47,6 @@ namespace Cryptography_Project
                         MessageBox.Show("Sucessfully decrypted the text with the Vigene algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     } 
  
-                    //error Providers
-                    if (plainTextbox.Text == "")
-                    {
-                        errorProvider1.SetError(plainTextbox, "Required Field");
-                    }
-                    if (encryptionTextbox.Text == "")
-                    {
-                        errorProvider2.SetError(encryptionTextbox, "Required Field");
-                    }
                 }
                 else if (comboBox1.SelectedItem.ToString() == "Transposition")
                 {
@@ -100,7 +91,8 @@ namespace Cryptography_Project
             }
             else
             {
-                MessageBox.Show("Please check your inputs");
+                MessageBox.Show("Please check all your inputs", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
