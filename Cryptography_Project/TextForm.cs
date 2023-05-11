@@ -91,6 +91,7 @@ namespace Cryptography_Project
             }
             else
             {
+                //Error handling
                 MessageBox.Show("Please check all your inputs", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
