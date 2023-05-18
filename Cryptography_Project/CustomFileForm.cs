@@ -16,8 +16,8 @@ namespace Cryptography_Project
 {
     public partial class CustomFileForm : Form
     {
-        byte[] abc;
-        byte[,] table;
+        byte[] abcd;
+        byte[,] byteTable;
 
 
         public CustomFileForm()
@@ -31,18 +31,18 @@ namespace Cryptography_Project
 
         private void InitializeTable()
         {
-            abc = new byte[256];
+            abcd = new byte[256];
             for (int i = 0; i < 256; i++)
             {
-                abc[i] = Convert.ToByte(i);
+                abcd[i] = Convert.ToByte(i);
             }
 
-            table = new byte[256, 256];
+            byteTable = new byte[256, 256];
             for (int i = 0; i < 256; i++)
             {
                 for (int j = 0; j < 256; j++)
                 {
-                    table[i, j] = abc[(i + j) % 256];
+                    byteTable[i, j] = abcd[(i + j) % 256];
                 }
             }
         }
@@ -77,12 +77,12 @@ namespace Cryptography_Project
 
             try
             {
-                byte[] fileContent = File.ReadAllBytes(plainTextbox.Text);
+                byte[] fileContents = File.ReadAllBytes(plainTextbox.Text);
                 byte[] passwordTemp = Encoding.ASCII.GetBytes(passwordTextbox.Text);
-                byte[] keys = new byte[fileContent.Length];
-                byte[] encrypted = new byte[fileContent.Length];
+                byte[] keys = new byte[fileContents.Length];
+                byte[] encrypted = new byte[fileContents.Length];
 
-                for (int i = 0; i < fileContent.Length; i++)
+                for (int i = 0; i < fileContents.Length; i++)
                 {
                     keys[i] = passwordTemp[i % passwordTemp.Length];
                 }
@@ -90,29 +90,29 @@ namespace Cryptography_Project
 
                 if (encryptRadiobtn.Checked)
                 {
-                    for (int i = 0; i < fileContent.Length; i++)
+                    for (int i = 0; i < fileContents.Length; i++)
                     {
-                        byte value = fileContent[i];
-                        byte key = keys[i];
-                        int valueIndex = -1, keyIndex = -1;
+                        byte value = fileContents[i];
+                        byte cipherKey = keys[i];
+                        int valueIndexes = -1, keyIndexes = -1;
 
                         for (int j = 0; j < 256; j++)
                         {
-                            if (abc[j] == value)
+                            if (abcd[j] == value)
                             {
-                                valueIndex = j;
+                                valueIndexes = j;
                                 break;
                             }
                         }
                         for (int j = 0; j < 256; j++)
                         {
-                            if (abc[j] == key)
+                            if (abcd[j] == cipherKey)
                             {
-                                keyIndex = j;
+                                keyIndexes = j;
                                 break;
                             }
                         }
-                        encrypted[i] = table[keyIndex, valueIndex];
+                        encrypted[i] = byteTable[keyIndexes, valueIndexes];
                     }
                     string fileName = Path.GetExtension(plainTextbox.Text);
                     SaveFileDialog sd = new SaveFileDialog
@@ -129,37 +129,37 @@ namespace Cryptography_Project
 
                 if (decryptRadiobtn.Checked)
                 {
-                    for (int i = 0; i < fileContent.Length; i++)
+                    for (int i = 0; i < fileContents.Length; i++)
                     {
-                        byte value = fileContent[i];
-                        byte key = keys[i];
-                        int valueIndex = -1, keyIndex = -1;
+                        byte value = fileContents[i];
+                        byte cipherKey = keys[i];
+                        int valueIndexes = -1, keyIndexes = -1;
 
                         for (int j = 0; j < 256; j++)
                         {
-                            if (abc[j] == key)
+                            if (abcd[j] == cipherKey)
                             {
-                                keyIndex = j;
+                                keyIndexes = j;
                                 break;
                             }
                         }
                         for (int j = 0; j < 256; j++)
                         {
-                            if (table[keyIndex, j] == value)
+                            if (byteTable[keyIndexes, j] == value)
                             {
-                                valueIndex = j;
+                                valueIndexes = j;
                                 break;
                             }
                         }
-                        encrypted[i] = abc[valueIndex];
+                        encrypted[i] = abcd[valueIndexes];
                     }
                     string fileName = Path.GetExtension(plainTextbox.Text);
-                    SaveFileDialog sd = new SaveFileDialog();
-                    sd.Filter = "Files (*" + fileName + " ) | *" + fileName;
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Files (*" + fileName + " ) | *" + fileName;
 
-                    if (sd.ShowDialog() == DialogResult.OK)
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllBytes(sd.FileName, encrypted);
+                        File.WriteAllBytes(saveDialog.FileName, encrypted);
                     }
                     MessageBox.Show("File decrypted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

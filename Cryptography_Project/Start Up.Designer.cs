@@ -32,11 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Filesbtn = new System.Windows.Forms.Button();
             this.Textbtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Exitbtn
             // 
-            this.Exitbtn.Location = new System.Drawing.Point(245, 198);
+            this.Exitbtn.Location = new System.Drawing.Point(237, 234);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.Size = new System.Drawing.Size(188, 60);
             this.Exitbtn.TabIndex = 8;
@@ -48,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(192, 63);
+            this.label1.Location = new System.Drawing.Point(184, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(308, 18);
             this.label1.TabIndex = 7;
@@ -56,7 +57,7 @@
             // 
             // Filesbtn
             // 
-            this.Filesbtn.Location = new System.Drawing.Point(392, 117);
+            this.Filesbtn.Location = new System.Drawing.Point(384, 153);
             this.Filesbtn.Name = "Filesbtn";
             this.Filesbtn.Size = new System.Drawing.Size(188, 60);
             this.Filesbtn.TabIndex = 6;
@@ -66,7 +67,7 @@
             // 
             // Textbtn
             // 
-            this.Textbtn.Location = new System.Drawing.Point(102, 117);
+            this.Textbtn.Location = new System.Drawing.Point(94, 153);
             this.Textbtn.Name = "Textbtn";
             this.Textbtn.Size = new System.Drawing.Size(188, 60);
             this.Textbtn.TabIndex = 5;
@@ -74,11 +75,23 @@
             this.Textbtn.UseVisualStyleBackColor = true;
             this.Textbtn.Click += new System.EventHandler(this.Textbtn_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(237, 30);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(194, 44);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "CipherShield";
+            // 
             // StartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 392);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Exitbtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Filesbtn);
@@ -96,6 +109,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Filesbtn;
         private System.Windows.Forms.Button Textbtn;
+        private System.Windows.Forms.Label label2;
     }
 }
 

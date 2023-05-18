@@ -38,6 +38,7 @@ namespace Cryptography_Project
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextEncrypt(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully encrypted the text with the Vigene algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     }
                     
                     else if (decryptionRadiobtn.Checked)
@@ -45,6 +46,7 @@ namespace Cryptography_Project
                         VigenereText vigenere = new VigenereText();
                         cipherTextbox.Text = vigenere.VigenereTextDecrypt(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully decrypted the text with the Vigene algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     } 
  
                 }
@@ -60,6 +62,7 @@ namespace Cryptography_Project
                             cipherTextbox.Text = transposition.Encrypt(plainText);
                         }
                         MessageBox.Show("Sucessfully encrypted the text with the Transposition algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
@@ -71,6 +74,7 @@ namespace Cryptography_Project
                             cipherTextbox.Text = transposition.Decrypt(plainText);
                         }
                         MessageBox.Show("Sucessfully decrypted the text with the Transposition algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     }
                 } 
                 else if (comboBox1.SelectedItem.ToString() == "Vernam")
@@ -80,12 +84,14 @@ namespace Cryptography_Project
                         VernamText vernam = new VernamText();
                         cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully encrypted the text with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     }
                     else if (decryptionRadiobtn.Checked)
                     {
                         VernamText vernam = new VernamText();
                         cipherTextbox.Text = vernam.VernamEncryptionAndDecryption(plainText, encryptionKey);
                         MessageBox.Show("Sucessfully decrypted the text with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        encryptionTextbox.Text = "";
                     }
                 }
             }

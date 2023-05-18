@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transposition\TranspositionFiles.cs" />
     <Compile Include="Transposition\TranspositionText.cs" />
     <Compile Include="Vernam\VernamFiles.cs" />
     <Compile Include="Vernam\VernamText.cs" />
