@@ -48,7 +48,7 @@
             // 
             // cipherTextbox
             // 
-            this.cipherTextbox.Location = new System.Drawing.Point(111, 115);
+            this.cipherTextbox.Location = new System.Drawing.Point(111, 154);
             this.cipherTextbox.Name = "cipherTextbox";
             this.cipherTextbox.ReadOnly = true;
             this.cipherTextbox.Size = new System.Drawing.Size(373, 20);
@@ -60,9 +60,9 @@
             this.label2.Location = new System.Drawing.Point(8, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Cipher Text:";
+            this.label2.Text = "Encryption Key:";
             // 
             // plainTextbox
             // 
@@ -83,7 +83,7 @@
             // 
             // encryptionTextbox
             // 
-            this.encryptionTextbox.Location = new System.Drawing.Point(111, 75);
+            this.encryptionTextbox.Location = new System.Drawing.Point(111, 115);
             this.encryptionTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.encryptionTextbox.Name = "encryptionTextbox";
             this.encryptionTextbox.Size = new System.Drawing.Size(151, 20);
@@ -96,9 +96,9 @@
             this.lblKey.Location = new System.Drawing.Point(8, 78);
             this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(81, 13);
+            this.lblKey.Size = new System.Drawing.Size(99, 13);
             this.lblKey.TabIndex = 12;
-            this.lblKey.Text = "Encryption Key:";
+            this.lblKey.Text = "Encryption Method:";
             // 
             // encryptionRadiobtn
             // 
@@ -131,7 +131,7 @@
             "Transposition",
             "Vigenere",
             "Vernam"});
-            this.comboBox1.Location = new System.Drawing.Point(111, 154);
+            this.comboBox1.Location = new System.Drawing.Point(111, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 17;
@@ -142,9 +142,9 @@
             this.label3.Location = new System.Drawing.Point(7, 157);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 13);
+            this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Encryption Method:";
+            this.label3.Text = "Cipher Text:";
             // 
             // Textbtn
             // 

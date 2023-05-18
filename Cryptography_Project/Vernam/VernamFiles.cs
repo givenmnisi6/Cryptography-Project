@@ -11,24 +11,19 @@ namespace Cryptography_Project.Vernam
 {
     internal class VernamFiles
     {
-        // Vernam File Encryption
-        //takes 3 parameters: input file, encrypted file, and key file
-        //input file is the file to be encrypted
-        //encrypted file is the file that will contain the encrypted text
-        //key file is the file that will contain the key
         public void VernamFileEncrypt(string inputFile, string encryptedFile, string keyFile)
         {
-            byte[] originalBytes;  //store the contents of the input file in bytes
+            byte[] originalBytes; 
 
-            using (FileStream fileStream = new FileStream(inputFile, FileMode.Open)) //open the input file
+            using (FileStream fileStream = new FileStream(inputFile, FileMode.Open)) 
             {
-                originalBytes = new byte[fileStream.Length];                         //store the length of the input file in bytes
-                fileStream.Read(originalBytes, 0, originalBytes.Length);             //read the input file
+                originalBytes = new byte[fileStream.Length];                         
+                fileStream.Read(originalBytes, 0, originalBytes.Length);             
             }
 
-            byte[] keyBytes = new byte[originalBytes.Length];                       //store the key in bytes
-            Random rand = new Random();                                             //create a random number generator
-            rand.NextBytes(keyBytes);                                               //generate a random key
+            byte[] keyBytes = new byte[originalBytes.Length];                      
+            Random rand = new Random();                                            
+            rand.NextBytes(keyBytes);                                               
 
             using (FileStream fileStream = new FileStream(keyFile, FileMode.Create)) //create the key file
             {
@@ -60,29 +55,29 @@ namespace Cryptography_Project.Vernam
             }
         }
 
-        public void VernamFileDecrypt(string encryptedFile, string keyFile, string decryptedFile)
+        public void VernamFileDecrypt(string encryptedFiles, string keyFile, string decryptedFile)
         {
             byte[] encryptedBytes;
 
-            using (FileStream fileStream = new FileStream(encryptedFile, FileMode.Open))
+            using (FileStream fileStream = new FileStream(encryptedFiles, FileMode.Open))
             {
                 encryptedBytes = new byte[fileStream.Length];
                 fileStream.Read(encryptedBytes, 0, encryptedBytes.Length);
             }
 
-            byte[] keyBytes;
+            byte[] keyFileBytes;
             using (FileStream fileStream = new FileStream(keyFile, FileMode.Open))
             {
-                keyBytes = new byte[fileStream.Length];
-                fileStream.Read(keyBytes, 0, keyBytes.Length);
+                keyFileBytes = new byte[fileStream.Length];
+                fileStream.Read(keyFileBytes, 0, keyFileBytes.Length);
             }
 
             byte[] decryptedData = new byte[encryptedBytes.Length];
-            VernamEncrypt(encryptedBytes, keyBytes, ref decryptedData);
+            VernamEncrypt(encryptedBytes, keyFileBytes, ref decryptedData);
 
-            if (encryptedFile.Contains(".ver"))
+            if (encryptedFiles.Contains(".ver"))
             {
-                encryptedFile.Replace(".ver", "");
+                encryptedFiles.Replace(".ver", "");
                 using (FileStream fileStream = new FileStream(decryptedFile, FileMode.Create))
                 {
                     fileStream.Write(decryptedData, 0, decryptedData.Length);

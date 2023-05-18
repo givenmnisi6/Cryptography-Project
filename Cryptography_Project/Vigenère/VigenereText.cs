@@ -45,29 +45,30 @@ namespace Cryptography_Project
             plain = plain.ToUpper();
 
             //store the cipher Text
-            string cipherText = "";
+            string encryptedText = "";
 
             int i = 0;
 
             //loop through the plain text
             try {
-                foreach (char element in plain)
+                foreach (char elements in plain)
                 {
                     //if the character is not a letter, add it to the cipher text
-                    if (!Char.IsLetter(element))
+                    if (!Char.IsLetter(elements))
                     {
-                        cipherText += element;
+                        encryptedText += elements;
                     }
                     else
                     {
-                        sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; //get the order of the letter in the alphabet
-                        sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key; //get the order of the letter in the alphabet
-                        sbyte Final = (sbyte)(TOrder + KOrder); //add the two orders together
-                        if (Final > 25) //if the final order is greater than 25, subtract 26
+                        sbyte firstOrder = AlphabetOrder.FirstOrDefault(x => x.Value == elements).Key; //get the order of the letter in the alphabet
+                        sbyte lastOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key; //get the order of the letter in the alphabet
+                        sbyte finalValue = (sbyte)(firstOrder + lastOrder); //add the two orders together
+                        
+                        if (finalValue > 25) //if the final order is greater than 25, subtract 26
                         {
-                            Final -= 26;
+                            finalValue -= 26;
                         }
-                        cipherText += AlphabetOrder[Final]; //add the letter to the cipher text
+                        encryptedText += AlphabetOrder[finalValue]; //add the letter to the cipher text
                         i++;
                     }
                     if (i == key.Length) //if the key is shorter than the plain text, start over
@@ -75,12 +76,11 @@ namespace Cryptography_Project
                         i = 0;
                     }
                 }
-                return cipherText;
+                return encryptedText;
             } catch (Exception e)
             {
                 return ("Error" + e.Message);
             }
-            
         }
 
         //Vigenere Text Decryption
@@ -122,29 +122,29 @@ namespace Cryptography_Project
             mixed = mixed.ToUpper();
 
             //store the plain text
-            string plainText = "";
+            string decryptedText = "";
 
             int i = 0;
 
             try
             {
                 //loop through the cipher text
-                foreach (char element in mixed)
+                foreach (char elements in mixed)
                 {
-                    if (!Char.IsLetter(element))
+                    if (!Char.IsLetter(elements))
                     {
-                        plainText += element;
+                        decryptedText += elements;
                     }
                     else
                     {
-                        sbyte TOrder = AlphabetOrder.FirstOrDefault(x => x.Value == element).Key; //get the order of the letter in the alphabet
-                        sbyte KOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
-                        sbyte Final = (sbyte)(TOrder - KOrder);
-                        if (Final < 0) //if the final order is less than 0, add 26
+                        sbyte firstOrder = AlphabetOrder.FirstOrDefault(x => x.Value == elements).Key; //get the order of the letter in the alphabet
+                        sbyte lastOrder = AlphabetOrder.FirstOrDefault(x => x.Value == key[i]).Key;
+                        sbyte finalValue = (sbyte)(firstOrder - lastOrder);
+                        if (finalValue < 0) //if the final order is less than 0, add 26
                         {
-                            Final += 26;
+                            finalValue += 26;
                         }
-                        plainText += AlphabetOrder[Final]; //add the letter to the plain text
+                        decryptedText += AlphabetOrder[finalValue]; //add the letter to the plain text
                          
                         i++;
                     }
@@ -153,7 +153,7 @@ namespace Cryptography_Project
                         i = 0;
                     }
                 }
-                return plainText;
+                return decryptedText;
             }
             catch (Exception e)
             {
