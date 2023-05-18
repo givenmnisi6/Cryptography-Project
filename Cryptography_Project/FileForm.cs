@@ -1,5 +1,6 @@
 ﻿using Cryptography_Project.Transposition;
 using Cryptography_Project.Vernam;
+using Cryptography_Project.Vigenère;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace Cryptography_Project
 
         string input, output, key;
         readonly VernamFiles vernam = new VernamFiles();
+        readonly VigenereFiles vigenere = new VigenereFiles();
         readonly TranspositionFiles transposition = new TranspositionFiles();
 
         //Open the file to be encrypted or decrypted
@@ -99,22 +101,32 @@ namespace Cryptography_Project
                 transposition.Transpose(input, output, 1);
                 MessageBox.Show("Sucessfully decrypted the file with the Transposition algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           /* if (comboBox1.SelectedItem.ToString() == "Vernam")
+            else if (comboBox1.SelectedItem.ToString() == "Vigenere" && encryptionRadiobtn.Checked && keyTextbox.Text != "")
             {
-                if (encryptionRadiobtn.Checked)
-                {
-                    //vernam.VernamFileEncryption(input, output, key);
-                    vernam.VernamFileEncrypt(input, output, key);
-                    MessageBox.Show("Sucessfully encrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (decryptionRadiobtn.Checked)
-                {
-                    //VernamText vernam = new VernamText();
-                    //vernam.VernamFileDecryption(input, output, key);
-                    vernam.VernamFileDecrypt(input, key, output);
-                    MessageBox.Show("Sucessfully decrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }*/
+                vigenere.VigenereFileEncrypt(input, output, key);
+                MessageBox.Show("Sucessfully encrypted the file with the Vigenere algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Vigenere" && decryptionRadiobtn.Checked && keyTextbox.Text != "")
+            {
+                vigenere.VigenereFileDecrypt(input, key, output);
+                MessageBox.Show("Sucessfully decrypted the file with the Vigenere algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            /* if (comboBox1.SelectedItem.ToString() == "Vernam")
+             {
+                 if (encryptionRadiobtn.Checked)
+                 {
+                     //vernam.VernamFileEncryption(input, output, key);
+                     vernam.VernamFileEncrypt(input, output, key);
+                     MessageBox.Show("Sucessfully encrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 }
+                 else if (decryptionRadiobtn.Checked)
+                 {
+                     //VernamText vernam = new VernamText();
+                     //vernam.VernamFileDecryption(input, output, key);
+                     vernam.VernamFileDecrypt(input, key, output);
+                     MessageBox.Show("Sucessfully decrypted the file with the Vernam algorithm!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 }
+             }*/
         }
 
         private void Custombtn_Click(object sender, EventArgs e)
