@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{color}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{tabularx}
+
+\lstloadlanguages{% Check Dokumentation for further languages ...
+%[Visual]Basic
+%Pascal
+C,
+C++,
+csh,
+%XML
+%HTML
+Java
+}
+\definecolor{red}{rgb}{0.6,0,0} % for strings
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+language=csh,
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+numbers=left, % Ort der Zeilennummern
+numberstyle=\tiny, % Stil der Zeilennummern
+%stepnumber=2, % Abstand zwischen den Zeilennummern
+numbersep=5pt, % Abstand der Nummern zum Text
+tabsize=2, % Groesse von Tabs
+extendedchars=true, %
+breaklines=true, % Zeilen werden Umgebrochen
+%keywordstyle=\color{red}\bfseries,
+frame=b,
+%keywordstyle=[1]\textbf, % Stil der Keywords
+% keywordstyle=[2]\textbf, %
+% keywordstyle=[3]\textbf, %
+% keywordstyle=[4]\textbf, \sqrt{\sqrt{}} %
+stringstyle=\color{blue}\ttfamily, % Farbe der String
+showspaces=false, % Leerzeichen anzeigen ?
+showtabs=true, % Tabs anzeigen ?
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+commentstyle=\color{blue},
+morecomment=[s][\color{green}]{//}{},
+%backgroundcolor=\color{grey},
+showstringspaces=false, % Leerzeichen in Strings anzeigen ?
+%morekeywords={__global__} % CUDA specific keywords
+morekeywords={  abstract, event, new, struct,
+                as, explicit, null, switch,
+                base, extern, object, this,
+                bool, false, operator, throw,
+                break, finally, out, true,
+                byte, fixed, override, try,
+                case, float, params, typeof,
+                catch, for, private, uint,
+                char, foreach, protected, ulong,
+                checked, goto, public, unchecked,
+                class, if, readonly, unsafe,
+                const, implicit, ref, ushort,
+                continue, in, return, using,
+                decimal, int, sbyte, virtual,
+                default, interface, sealed, volatile,
+                delegate, internal, short, void,
+                do, is, sizeof, while,
+                double, lock, stackalloc,
+                else, long, static,
+                enum, namespace, string},% list your attributes here
+keywordstyle=\color{cyan},
+identifierstyle=\color{red},
+}
+%\DeclareCaptionFont{blue}{\color{blue}}
+
+%\captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{8}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\lstset{       % keyword style
+  language=csh,
+  }
+
+
+
+\input{main}
+
+\begin{document}
+
+\maketitle
+\input{Introduction}
+
+\titlepage 
+\tableofcontents
+
+
+\end{document}
+
