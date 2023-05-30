@@ -29,7 +29,7 @@ The Comprehensive Documentation for this project can be found [here](https://git
 
 ### Collaborators
 1. [givenmnisi6](https://github.com/givenmnisi6)
-2. [Bile62](https://github.com/Bile62")
+2. [Bile62](https://github.com/Bile62)
 
          
 
