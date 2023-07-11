@@ -25,7 +25,8 @@ The following algorithms will be implemented
 - Own algorithm (BnG In-House)
 
 ## Documentation
-The Comprehensive Documentation for this project can be found [here](https://github.com/givenmnisi6/Cryptography-Project/blob/main/Documentation/Project%20document.pdf)
+The Comprehensive Documentation for this project can be found [here](https://github.com/givenmnisi6/Cryptography-Project/blob/a7694941574f8c2cdd1d51debccbf66ebb5e11f4/Documentation/Project%20document.pdf)
+https://github.com/givenmnisi6/Cryptography-Project/blob/main/Documentation/Project%20document.pdf
 
 ### Collaborators
 1. [givenmnisi6](https://github.com/givenmnisi6)
